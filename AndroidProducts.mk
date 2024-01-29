@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-	$(LOCAL_DIR)/full_octopus_ibt.mk
+	$(LOCAL_DIR)/octopus_ibt.mk
