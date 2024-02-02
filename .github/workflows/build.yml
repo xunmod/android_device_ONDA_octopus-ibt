@@ -1,5 +1,7 @@
 name: Compile AOSP 5.1
 on:
+  push:
+    branches: [ "lollipop" ]
   workflow_dispatch:
     inputs:
       enable_ssh:
