@@ -28,13 +28,7 @@ jobs:
           repo init --depth=1 -u https://github.com/xunmod/android_manifest -b lollipop
           repo sync -c -f --no-tags --no-clone-bundle -j16
           rm -r device/softwinner/octopus-ibt
-          cd system/core && curl https://github.com/LineageOS/android_system_core/commit/75ac84c0bf57d646dfae468916fcdcc071570293.patch | patch -p1 - && cd ../..
-          cd frameworks/av && curl https://github.com/LineageOS/android_frameworks_av/commit/5a6788730acfc6fd8f4a6ef89d2c376572a26b55.patch | patch -p1 - && cd ../..
-      - name: Setup device
-        uses: actions/checkout@v3
-        with:
-          path: 'aosp/device/ONDA/octopus-ibt'
-          ref: 'lollipop'
+          git clone --single-branch -b lollipop --depth 1 https://github.com/xunmod/android_device_ONDA_octopus-ibt device/ONDA/octopus-ibt
       - name: Build
         shell: bash
         run: |
@@ -51,8 +45,8 @@ jobs:
         with:
           name: Images
           path: 'images.tar.gz'
-      - name: Debug
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
         if: ${{ failure() || inputs.enable_ssh }}
-        uses: lhotari/action-upterm@v1
         with:
           limit-access-to-actor: false
