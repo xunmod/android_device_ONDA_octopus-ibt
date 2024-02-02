@@ -1,0 +1,56 @@
+name: Compile AOSP 5.1
+on:
+  workflow_dispatch:
+    ssh:
+      description: 'open ssh or not'
+      required: true
+      type: boolean
+      default: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: gamecss/lollipop_buildenv:latest
+    env:
+      LC_ALL: "C"
+    steps:
+      - name: Get source
+        run: |
+          mkdir $GITHUB_WORKSPACE/aosp
+          cd $GITHUB_WORKSPACE/aosp
+          git config --global user.email "116288337+xunmod@users.noreply.github.com"
+          git config --global user.name "xunmod@bot"
+          sudo rm -f /usr/bin/python
+          sudo ln -sf /usr/local/bin/python3.8 /usr/bin/python
+          repo init --depth=1 -u https://github.com/xunmod/android_manifest -b lollipop
+          repo sync -c -f --no-tags --no-clone-bundle -j16
+          cd aosp
+          rm -r device/softwinner/octopus-ibt
+          cd system/core && curl https://github.com/LineageOS/android_system_core/commit/75ac84c0bf57d646dfae468916fcdcc071570293.patch | patch -p1 - && cd ../..
+          cd frameworks/av && curl https://github.com/LineageOS/android_frameworks_av/commit/5a6788730acfc6fd8f4a6ef89d2c376572a26b55.patch | patch -p1 - && cd ../..
+      - name: Setup device
+        uses: actions/checkout@v3
+        with:
+          path: 'aosp/device/ONDA/octopus-ibt'
+          ref: 'lollipop'
+      - name: Build
+        shell: bash
+        run: |
+          sudo rm -f /usr/bin/python
+          sudo ln -sf /usr/bin/python2.7 /usr/bin/python
+          cd $GITHUB_WORKSPACE/aosp
+          source build/envsetup.sh
+          lunch octopus_ibt-userdebug
+          mka -j$(nproc --all)
+      - name: Package image
+        run: |
+          tar -czvf images.tar.gz $(find aosp/out/target/product/octopus-ibt -name *.img | xargs)
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Images
+          path: 'images.tar.gz'
+      - name: Debug
+        if: ${{ failure() || inputs.ssh }}
+        uses: lhotari/action-upterm@v1
+        with:
+          limit-access-to-actor: false
