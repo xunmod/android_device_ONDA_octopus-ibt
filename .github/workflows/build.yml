@@ -1,11 +1,12 @@
 name: Compile AOSP 5.1
 on:
   workflow_dispatch:
-    ssh:
-      description: 'open ssh or not'
-      required: true
-      type: boolean
-      default: false
+    inputs:
+      enable_ssh:
+        description: 'enable ssh or not'
+        required: true
+        type: boolean
+        default: false
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -49,7 +50,7 @@ jobs:
           name: Images
           path: 'images.tar.gz'
       - name: Debug
-        if: ${{ failure() || inputs.ssh }}
+        if: ${{ failure() || inputs.enable_ssh }}
         uses: lhotari/action-upterm@v1
         with:
           limit-access-to-actor: false
