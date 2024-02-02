@@ -37,7 +37,7 @@ jobs:
           cd $GITHUB_WORKSPACE/aosp
           source build/envsetup.sh
           lunch octopus_ibt-userdebug
-          mka -j$(nproc --all)
+          make -j$(nproc --all)
       - name: Package image
         run: |
           tar -czvf images.tar.gz $(find aosp/out/target/product/octopus-ibt -name *.img | xargs)
@@ -46,7 +46,5 @@ jobs:
           name: Images
           path: 'images.tar.gz'
       - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
+        uses: mxschmitt/action-tmate@v2
         if: ${{ failure() || inputs.enable_ssh }}
-        with:
-          limit-access-to-actor: false
