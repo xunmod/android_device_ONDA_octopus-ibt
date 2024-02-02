@@ -7,8 +7,7 @@
 /dev/block/by-name/env                /env            emmc    defaults                                                        defaults
 /dev/block/by-name/boot               /boot           emmc    defaults                                                        defaults
 /dev/block/by-name/system             /system         ext4    defaults                                                        defaults
-/dev/block/by-name/data               /data           ext4    default                                                         defaults
-/dev/block/by-name/UDISK              /sdcard         vfat    defaults                                                        defaults
+/dev/block/by-name/UDISK              /data           ext4    defaults                                                        defaults
 /dev/block/by-name/misc               /misc           emmc    defaults                                                        defaults
 /dev/block/by-name/recovery           /recovery       emmc    defaults                                                        defaults
 /dev/block/by-name/cache              /cache          ext4    defaults                                                        defaults
