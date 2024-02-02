@@ -101,7 +101,7 @@ class DefaultDevice : public Device {
     const char* const* GetMenuHeaders() { return HEADERS; }
     const char* const* GetMenuItems() { return ITEMS; }
 
-    const char* GetExternalStoragePath() { return "/sdcard"; }
+    const char* GetExternalStoragePath() { return "/data/media/0"; }
     const char* GetExtsdStoragePath() { return "/extsd"; }
     const char* GetUsbhostStoragePath() { return "/usbhost"; }
   private:
