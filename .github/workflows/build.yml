@@ -17,9 +17,8 @@ jobs:
     env:
       LC_ALL: "C"
     steps:
-      - name: Clean disk
+      - name: Get disk usage
         run: |
-          docker rmi $(docker image ls -aq)
           sudo du -hxd4 /
           df -h
       - name: Get source
