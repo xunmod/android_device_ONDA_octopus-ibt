@@ -17,14 +17,13 @@ jobs:
     env:
       LC_ALL: "C"
     steps:
-      - name: Get disk usage
+      - name: Clear disk
         run: |
+          sudo rm -rf /__t
           echo "==========  /  =========="
           sudo du -hxd3 /
           echo "========== __* =========="
           sudo du -hxd2 /__*
-          echo "==========wrkpl=========="
-          sudo du -hxd2 /workplaces || true
           df -h
       - name: Get source
         run: |
@@ -38,6 +37,7 @@ jobs:
           mkdir .repo/local_manifests
           wget https://github.com/xunmod/android_device_ONDA_octopus-ibt/raw/lollipop/.github/extras.xml -O .repo/local_manifests/extras.xml
           repo sync -c -f --no-tags --no-clone-bundle -j16
+          rm -rf .repo/project-objects
           rm -r device/softwinner/octopus-ibt
           curl https://github.com/xunmod/twrp_device_ONDA_octopus-ibt/raw/twrp-4.4/twrp_gdb.patch | patch -p1 -
           mv bootable/recovery-cm/applydiff bootable/recovery/
@@ -53,24 +53,24 @@ jobs:
           make -j$(nproc --all)
       - name: Package image
         run: |
-          tar -czvf images.tar.gz $(find aosp/out/target/product/octopus-ibt -name *.img | xargs)
+          tar -czvf images.tar.gz $(find aosp/out/target/product/octopus-ibt -name *.img | xargs) $(find aosp/out/target/product/octopus-ibt -name *.fex | xargs)
       - uses: actions/upload-artifact@v3
         with:
           name: Images
           path: 'images.tar.gz'
-      - name: Setup tmate session
-        if: ${{ failure() || inputs.enable_ssh }}
-        run: |
-          wget https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2.4.0-static-linux-amd64.tar.xz
-          tar -tf tmate-2.4.0-static-linux-amd64.tar.xz
-          sudo mv tmate*/tmate /usr/bin
-          sudo chown +x /usr/bin/tmate
-          tmate
-          cat << EOF >> tmate_keeper
-          while true
-          do
-          sleep 1800
-          done
-          EOF
-          chmod +x tmate_keeper
-          ./tmate_keeper
+#      - name: Setup tmate session
+#        if: ${{ failure() || inputs.enable_ssh }}
+#        run: |
+#          wget https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2.4.0-static-linux-amd64.tar.xz
+#          tar -tf tmate-2.4.0-static-linux-amd64.tar.xz
+#          sudo mv tmate*/tmate /usr/bin
+#          sudo chown +x /usr/bin/tmate
+#          tmate
+#          cat << EOF >> tmate_keeper
+#          while true
+#          do
+#          sleep 1800
+#          done
+#          EOF
+#          chmod +x tmate_keeper
+#          ./tmate_keeper
