@@ -25,5 +25,8 @@
     <project name="android_external_openssh" path="external/openssh" remote="LineageOS" revision="cm-12.1" />
     <project name="android_external_ntfs-3g" path="external/ntfs-3g" remote="LineageOS" revision="cm-12.1" />
     <project name="android_device_ONDA_octopus-ibt" path="device/ONDA/octopus-ibt" remote="xunmod" revision="lollipop" />
+
+<!-- For applydiff -->
+    <project name="android_bootable_recovery" path="bootable/recovery-cm" remote="LineageOS" revision="cm-12.1" />
 </manifest>
 

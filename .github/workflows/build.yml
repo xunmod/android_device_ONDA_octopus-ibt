@@ -40,6 +40,8 @@ jobs:
           repo sync -c -f --no-tags --no-clone-bundle -j16
           rm -r device/softwinner/octopus-ibt
           curl https://github.com/xunmod/twrp_device_ONDA_octopus-ibt/raw/twrp-4.4/twrp_gdb.patch | patch -p1 -
+          mv bootable/recovery-cm/applydiff bootable/recovery/
+          rm -rf bootable/recovery-cm
       - name: Build
         shell: bash
         run: |
