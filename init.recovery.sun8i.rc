@@ -8,8 +8,3 @@ on init
     mkdir /bootloader
     exec /sbin/busybox sh /sbin/init_parttion.sh
 
-service console /sbin/sh
-    console
-    disabled
-    user shell
-    group log

@@ -23,9 +23,8 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 104857600
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 2097152000
 
 # recovery stuff
-#TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
-TARGET_RECOVERY_UI_LIB := librecovery_ui_octopus_ibt
-SW_BOARD_TOUCH_RECOVERY := true
+TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+include device/ONDA/octopus-ibt/recovery/twrp.mk
 
 # wifi and bt configuration
 
