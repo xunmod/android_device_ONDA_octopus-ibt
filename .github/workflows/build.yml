@@ -27,7 +27,7 @@ jobs:
           sudo ln -sf /usr/local/bin/python3.8 /usr/bin/python
           repo init --depth=1 -u https://github.com/xunmod/android_manifest -b lollipop
           mkdir .repo/local_manifests
-          wget https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni/blob/twrp-5.1/twrp-extras.xml -O .repo/local_manifests/twrp-extras.xml
+          wget https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni/raw/twrp-5.1/twrp-extras.xml -O .repo/local_manifests/twrp-extras.xml
           repo sync -c -f --no-tags --no-clone-bundle -j16
           rm -r device/softwinner/octopus-ibt
           git clone --single-branch -b lollipop --depth 1 https://github.com/xunmod/android_device_ONDA_octopus-ibt device/ONDA/octopus-ibt
