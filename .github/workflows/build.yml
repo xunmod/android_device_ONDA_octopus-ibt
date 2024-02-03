@@ -17,6 +17,13 @@ jobs:
     env:
       LC_ALL: "C"
     steps:
+      - name: Clean disk
+        run: |
+          sudo swapoff -a
+          sudo rm -f /swapfile
+          sudo apt clean
+          docker rmi $(docker image ls -aq)
+          df -h
       - name: Get source
         run: |
           mkdir $GITHUB_WORKSPACE/aosp
