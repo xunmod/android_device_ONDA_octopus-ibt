@@ -21,10 +21,10 @@ jobs:
         run: |
           echo "==========  /  =========="
           sudo du -hxd3 /
-          echo "========== __e =========="
-          sudo du -hxd2 /__e
-          echo "========== __w =========="
-          sudo du -hxd2 /__w
+          echo "========== __* =========="
+          sudo du -hxd2 /__*
+          echo "==========wrkpl=========="
+          sudo du -hxd2 /workplaces || true
           df -h
       - name: Get source
         run: |
