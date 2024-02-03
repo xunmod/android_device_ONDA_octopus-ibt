@@ -19,7 +19,12 @@ jobs:
     steps:
       - name: Get disk usage
         run: |
-          sudo du -hxd3 /__e
+          echo "==========  /  =========="
+          sudo du -hxd3 /
+          echo "========== __e =========="
+          sudo du -hxd2 /__e
+          echo "========== __w =========="
+          sudo du -hxd2 /__w
           df -h
       - name: Get source
         run: |
@@ -34,6 +39,7 @@ jobs:
           wget https://github.com/xunmod/android_device_ONDA_octopus-ibt/raw/lollipop/.github/extras.xml -O .repo/local_manifests/extras.xml
           repo sync -c -f --no-tags --no-clone-bundle -j16
           rm -r device/softwinner/octopus-ibt
+          curl https://github.com/xunmod/twrp_device_ONDA_octopus-ibt/raw/twrp-4.4/twrp_gdb.patch | patch -p1 -
       - name: Build
         shell: bash
         run: |
