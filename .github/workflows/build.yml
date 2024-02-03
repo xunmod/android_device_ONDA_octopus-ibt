@@ -26,10 +26,14 @@ jobs:
           sudo rm -f /usr/bin/python
           sudo ln -sf /usr/local/bin/python3.8 /usr/bin/python
           repo init --depth=1 -u https://github.com/xunmod/android_manifest -b lollipop
-          mkdir .repo/local_manifests
-          wget https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni/raw/twrp-5.1/twrp-extras.xml -O .repo/local_manifests/twrp-extras.xml
           repo sync -c -f --no-tags --no-clone-bundle -j16
           rm -r device/softwinner/octopus-ibt
+          rm -r bootable/recovery
+          git clone https://github.com/TeamWin/android_bootable_recovery bootable/recovery --no-tags --depth 1 --single-branch -b android9.0
+          git clone https://github.com/TeamWin/android_external_python3 external/python3 --no-tags --depth 1 --single-branch -b android9.0
+          git clone https://github.com/LineageOS/android_external_bash external/bash --no-tags --depth 1 --single-branch -b cm-12.1
+          git clone https://github.com/LineageOS/android_external_libncurses external/libncurses --no-tags --depth 1 --single-branch -b cm-12.1
+          git clone https://github.com/LineageOS/android_external_openssh external/openssh --no-tags --depth 1 --single-branch -b cm-12.1
           git clone --single-branch -b lollipop --depth 1 https://github.com/xunmod/android_device_ONDA_octopus-ibt device/ONDA/octopus-ibt
       - name: Build
         shell: bash
