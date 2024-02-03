@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Get disk usage
         run: |
-          sudo du -hxd3 /__w
+          sudo du -hxd3 /__e
           df -h
       - name: Get source
         run: |
