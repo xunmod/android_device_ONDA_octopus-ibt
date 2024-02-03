@@ -19,10 +19,8 @@ jobs:
     steps:
       - name: Clean disk
         run: |
-          sudo swapoff -a
-          sudo rm -f /swapfile
-          sudo apt clean
           docker rmi $(docker image ls -aq)
+          sudo du -hxd4 /
           df -h
       - name: Get source
         run: |
