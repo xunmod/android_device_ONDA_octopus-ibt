@@ -17,6 +17,7 @@ PRODUCT_COPY_FILES += \
     device/ONDA/octopus-ibt/verity/rsa_key/verity_key:root/verity_key \
     device/ONDA/octopus-ibt/init.recovery.sun8i.rc:root/init.recovery.sun8i.rc \
     device/ONDA/octopus-ibt/ueventd.sun8i.rc:root/ueventd.sun8i.rc \
+    device/ONDA/octopus-ibt/recovery.fstab:recovery.fstab \
     device/ONDA/octopus-ibt/modules/modules/nand.ko:root/nand.ko \
     device/ONDA/octopus-ibt/modules/modules/sunxi_tr.ko:root/sunxi_tr.ko \
     device/ONDA/octopus-ibt/modules/modules/disp.ko:root/disp.ko \
