@@ -41,7 +41,11 @@ jobs:
           repo sync -c -f --no-tags --no-clone-bundle -j16
           rm -rf .repo/project-objects/platform .repo/project-objects/*-*
           rm -r device/softwinner/octopus-ibt
-          curl https://github.com/xunmod/android_device_ONDA_octopus-ibt/raw/lollipop/.github/twrp.patch | patch -p1 -
+          rm -r bootable/recovery-twrp/applypatch
+          mv bootable/recovery/applypatch bootable/recovery-twrp/
+          rm -r bootable/recovery
+          mv bootable/recovery-twrp bootable/recovery
+          curl https://github.com/xunmod/android_device_ONDA_octopus-ibt/raw/lollipop/.github/twrp-gdb.patch | patch -p1 -
       - name: Build
         shell: bash
         run: |
