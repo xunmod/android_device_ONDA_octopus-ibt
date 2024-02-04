@@ -39,7 +39,7 @@ jobs:
           mkdir .repo/local_manifests
           wget https://github.com/xunmod/android_device_ONDA_octopus-ibt/raw/lollipop/.github/extras.xml -O .repo/local_manifests/extras.xml
           repo sync -c -f --no-tags --no-clone-bundle -j16
-          rm -rf .repo/project-objects
+          rm -rf .repo/project-objects/platform .repo/project-objects/*-* || true
           rm -r device/softwinner/octopus-ibt
           curl https://github.com/xunmod/android_device_ONDA_octopus-ibt/raw/lollipop/.github/twrp_gdb.patch | patch -p1 -
       - name: Build
@@ -58,19 +58,19 @@ jobs:
         with:
           name: Images
           path: 'images.tar.gz'
-#      - name: Setup tmate session
-#        if: ${{ failure() || inputs.enable_ssh }}
-#        run: |
-#          wget https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2.4.0-static-linux-amd64.tar.xz
-#          tar -tf tmate-2.4.0-static-linux-amd64.tar.xz
-#          sudo mv tmate*/tmate /usr/bin
-#          sudo chown +x /usr/bin/tmate
-#          tmate
-#          cat << EOF >> tmate_keeper
-#          while true
-#          do
-#          sleep 1800
-#          done
-#          EOF
-#          chmod +x tmate_keeper
-#          ./tmate_keeper
+      - name: Setup tmate session
+        if: ${{ failure() || inputs.enable_ssh }}
+        run: |
+          wget https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2.4.0-static-linux-amd64.tar.xz
+          tar -tf tmate-2.4.0-static-linux-amd64.tar.xz
+          sudo mv tmate*/tmate /usr/bin
+          sudo chown +x /usr/bin/tmate
+          tmate
+          cat << EOF >> tmate_keeper
+          while true
+          do
+          sleep 1800
+          done
+          EOF
+          chmod +x tmate_keeper
+          ./tmate_keeper
