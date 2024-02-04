@@ -45,7 +45,7 @@ jobs:
           mv bootable/recovery/applypatch bootable/recovery-twrp/
           rm -r bootable/recovery
           mv bootable/recovery-twrp bootable/recovery
-          curl https://github.com/xunmod/android_device_ONDA_octopus-ibt/raw/lollipop/.github/twrp-gdb.patch | patch -p1 -
+          curl https://github.com/xunmod/android_device_ONDA_octopus-ibt/raw/lollipop/.github/twrp.patch | patch -p1 -
       - name: Build
         shell: bash
         run: |
