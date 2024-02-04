@@ -53,7 +53,7 @@ jobs:
           make -j$(nproc --all)
       - name: Package image
         run: |
-          tar -czvf images.tar.gz $(find aosp/out/target/product/octopus-ibt -name *.img | xargs) $(find aosp/out/target/product/octopus-ibt -name *.fex | xargs)
+          tar -czvf images.tar.gz $(find $GITHUB_WORKSPACE/aosp/out/target/product/octopus-ibt -name *.img | xargs)
       - uses: actions/upload-artifact@v3
         with:
           name: Images
@@ -64,12 +64,4 @@ jobs:
           wget https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2.4.0-static-linux-amd64.tar.xz
           tar -xf tmate-2.4.0-static-linux-amd64.tar.xz
           sudo chmod +x tmate-2.4.0-static-linux-amd64/tmate
-          tmate-2.4.0-static-linux-amd64/tmate
-          cat << EOF >> tmate_keeper
-          while true
-          do
-          sleep 1800
-          done
-          EOF
-          chmod +x tmate_keeper
-          ./tmate_keeper
+          tmate-2.4.0-static-linux-amd64/tmate -F
