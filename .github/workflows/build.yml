@@ -42,6 +42,7 @@ jobs:
           rm -rf .repo/project-objects/platform .repo/project-objects/*-* || true
           rm -r device/softwinner/octopus-ibt
           curl https://github.com/xunmod/android_device_ONDA_octopus-ibt/raw/lollipop/.github/twrp_gdb.patch | patch -p1 -
+          sed '$iinclude $(commands_TWRP_local_path)/apply_patch/Android.mk' bootable/recovery/Android.mk | tee bootable/recovery/Android.mk
       - name: Build
         shell: bash
         run: |
@@ -49,7 +50,7 @@ jobs:
           sudo ln -sf /usr/bin/python2.7 /usr/bin/python
           cd $GITHUB_WORKSPACE/aosp
           source build/envsetup.sh
-          lunch octopus_ibt-eng
+          lunch octopus_ibt-userdebug
           make -j$(nproc --all)
       - name: Package image
         run: |
@@ -58,19 +59,18 @@ jobs:
         with:
           name: Images
           path: 'images.tar.gz'
-      - name: Setup tmate session
-        if: ${{ failure() || inputs.enable_ssh }}
-        run: |
-          wget https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2.4.0-static-linux-amd64.tar.xz
-          tar -tf tmate-2.4.0-static-linux-amd64.tar.xz
-          sudo mv tmate*/tmate /usr/bin
-          sudo chown +x /usr/bin/tmate
-          tmate
-          cat << EOF >> tmate_keeper
-          while true
-          do
-          sleep 1800
-          done
-          EOF
-          chmod +x tmate_keeper
-          ./tmate_keeper
+#      - name: Setup tmate session
+#        if: ${{ failure() || inputs.enable_ssh }}
+#        run: |
+#          wget https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2.4.0-static-linux-amd64.tar.xz
+#          tar -tf tmate-2.4.0-static-linux-amd64.tar.xz
+#          sudo chmod +x tmate-2.4.0-static-linux-amd64/tmate
+#          tmate-2.4.0-static-linux-amd64/tmate
+#          cat << EOF >> tmate_keeper
+#          while true
+#          do
+#          sleep 1800
+#          done
+#          EOF
+#          chmod +x tmate_keeper
+#          ./tmate_keeper
