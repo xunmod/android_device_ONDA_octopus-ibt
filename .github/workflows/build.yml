@@ -20,6 +20,7 @@ jobs:
       - name: Clear disk
         run: |
           sudo rm -rf /__t/* || true
+          sudo rm -rf $GITHUB_WORKSPACE/* || true
           echo "==========  /  =========="
           sudo du -hxd3 /
           echo "========== __* =========="
@@ -28,7 +29,6 @@ jobs:
       - name: Get source
         run: |
           cd $GITHUB_WORKSPACE/
-          rm -rf * || true
           mkdir aosp
           cd aosp
           git config --global user.email "116288337+xunmod@users.noreply.github.com"
