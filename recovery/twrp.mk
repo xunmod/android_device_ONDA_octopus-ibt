@@ -1,3 +1,5 @@
+include bootable/recovery/applypatch/Android.mk
+
 LOCAL_PATH := device/ONDA/octopus-ibt
 
 TARGET_USERIMAGES_USE_EXT4 := true

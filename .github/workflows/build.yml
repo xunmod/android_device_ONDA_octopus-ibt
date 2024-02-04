@@ -41,7 +41,7 @@ jobs:
           repo sync -c -f --no-tags --no-clone-bundle -j16
           rm -rf .repo/project-objects/platform .repo/project-objects/*-* || true
           rm -r device/softwinner/octopus-ibt
-          curl https://github.com/xunmod/android_device_ONDA_octopus-ibt/raw/lollipop/.github/twrp.patch | patch -p1 -
+          curl https://github.com/xunmod/android_device_ONDA_octopus-ibt/raw/lollipop/.github/twrp-gdb.patch | patch -p1 -
       - name: Build
         shell: bash
         run: |
@@ -62,7 +62,7 @@ jobs:
         if: ${{ failure() || inputs.enable_ssh }}
         run: |
           wget https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2.4.0-static-linux-amd64.tar.xz
-          tar -tf tmate-2.4.0-static-linux-amd64.tar.xz
+          tar -xf tmate-2.4.0-static-linux-amd64.tar.xz
           sudo chmod +x tmate-2.4.0-static-linux-amd64/tmate
           tmate-2.4.0-static-linux-amd64/tmate
           cat << EOF >> tmate_keeper

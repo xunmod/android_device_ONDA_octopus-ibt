@@ -13,11 +13,3 @@ diff -uprN a/bootable/recovery/Android.mk b/bootable/recovery/Android.mk
  include $(BUILD_EXECUTABLE)
  
  # Symlink for file_contexts
-@@ -925,6 +930,7 @@ endif
- include $(commands_TWRP_local_path)/injecttwrp/Android.mk \
-     $(commands_TWRP_local_path)/htcdumlock/Android.mk \
-     $(commands_TWRP_local_path)/gui/Android.mk \
-+    $(commands_TWRP_local_path)/applypatch/Android.mk \
-     $(commands_TWRP_local_path)/mmcutils/Android.mk \
-     $(commands_TWRP_local_path)/bmlutils/Android.mk \
-     $(commands_TWRP_local_path)/prebuilt/Android.mk \
