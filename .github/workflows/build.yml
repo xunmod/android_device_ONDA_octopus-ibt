@@ -42,7 +42,7 @@ jobs:
           rm -rf .repo/project-objects
           rm -r device/softwinner/octopus-ibt
           curl https://github.com/xunmod/android_device_ONDA_octopus-ibt/raw/lollipop/.github/twrp_gdb.patch | patch -p1 -
-          mv bootable/recovery/applydiff bootable/recovery-twrp/
+          mv bootable/recovery/applypatch bootable/recovery-twrp/
           rm -r bootable/recovery
           mv bootable/recovery-twrp bootable/recovery
       - name: Build
