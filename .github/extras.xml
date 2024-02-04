@@ -8,13 +8,12 @@
             fetch="https://github.com/LineageOS"
             review="https://review.lineageos.org" />
 
-    <remote name="github"
-            fetch="https://github.com" />
+    <remote name="xunmod"
+            fetch="https://github.com/xunmod" />
 
-    <remove-project name="bootable-recovery" />
     <remove-project name="platform/external/openssh" />
 <!-- TWRP lives in TeamWin android-9.0 -->
-    <project path="bootable/recovery" name="android_bootable_recovery" remote="TeamWin" revision="android-9.0"/>
+    <project path="bootable/recovery-twrp" name="android_bootable_recovery" remote="TeamWin" revision="android-9.0"/>
     <project path="external/python3" name="android_external_python3" remote="TeamWin" revision="android-9.0"/>
 
 <!-- Include external LineageOS repos for bash & nano -->
@@ -24,9 +23,7 @@
     <project name="android_external_libncurses" path="external/libncurses" remote="LineageOS" revision="cm-12.1" />
     <project name="android_external_openssh" path="external/openssh" remote="LineageOS" revision="cm-12.1" />
     <project name="android_external_ntfs-3g" path="external/ntfs-3g" remote="LineageOS" revision="cm-12.1" />
-<!-- Applydiff -->
-    <project name="LineageOS/android_bootable_recovery" path="bootable/recovery-cm" remote="github" revision="cm-12.1" />
 
-    <project name="xunmod/android_device_ONDA_octopus-ibt" path="device/ONDA/octopus-ibt" remote="github" revision="lollipop" />
+    <project name="android_device_ONDA_octopus-ibt" path="device/ONDA/octopus-ibt" remote="xunmod" revision="lollipop" />
 </manifest>
 

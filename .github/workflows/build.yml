@@ -27,8 +27,10 @@ jobs:
           df -h
       - name: Get source
         run: |
-          mkdir $GITHUB_WORKSPACE/aosp
-          cd $GITHUB_WORKSPACE/aosp
+          cd $GITHUB_WORKSPACE/
+          rm -rf * || true
+          mkdir aosp
+          cd aosp
           git config --global user.email "116288337+xunmod@users.noreply.github.com"
           git config --global user.name "xunmod@bot"
           sudo rm -f /usr/bin/python
@@ -39,9 +41,7 @@ jobs:
           repo sync -c -f --no-tags --no-clone-bundle -j16
           rm -rf .repo/project-objects
           rm -r device/softwinner/octopus-ibt
-          curl https://github.com/xunmod/twrp_device_ONDA_octopus-ibt/raw/twrp-4.4/twrp_gdb.patch | patch -p1 -
-          mv bootable/recovery-cm/applydiff bootable/recovery/
-          rm -rf bootable/recovery-cm
+          curl https://github.com/xunmod/android_device_ONDA_octopus-ibt/raw/lollipop/.github/twrp_gdb.patch | patch -p1 -
       - name: Build
         shell: bash
         run: |
