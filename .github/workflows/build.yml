@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Clear disk
         run: |
-          sudo rm -rf /__t
+          sudo rm -rf /__t/* || true
           echo "==========  /  =========="
           sudo du -hxd3 /
           echo "========== __* =========="
