@@ -3,9 +3,6 @@
 # Product-specific compile-time definitions.
 #
 
-include bootable/recovery/applypatch/Android.mk
-
-include $(CLEAR_VARS)
 include device/softwinner/octopus-common/BoardConfigCommon.mk
 
 # image related

@@ -39,8 +39,12 @@ jobs:
           mkdir .repo/local_manifests
           wget https://github.com/xunmod/android_device_ONDA_octopus-ibt/raw/lollipop/.github/extras.xml -O .repo/local_manifests/extras.xml
           repo sync -c -f --no-tags --no-clone-bundle -j16
-          rm -rf .repo/project-objects/platform .repo/project-objects/*-* || true
+          rm -rf .repo/project-objects/platform .repo/project-objects/*-*
           rm -r device/softwinner/octopus-ibt
+          rm -r bootable/recovery-twrp/applypatch
+          mv bootable/recovery/applypatch bootable/recovery-twrp/
+          rm -r bootable/recovery
+          mv bootable/recovery-twrp bootable/recovery
           curl https://github.com/xunmod/android_device_ONDA_octopus-ibt/raw/lollipop/.github/twrp-gdb.patch | patch -p1 -
       - name: Build
         shell: bash
@@ -58,10 +62,10 @@ jobs:
         with:
           name: Images
           path: 'images.tar.gz'
-      - name: Setup tmate session
-        if: ${{ failure() || inputs.enable_ssh }}
-        run: |
-          wget https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2.4.0-static-linux-amd64.tar.xz
-          tar -xf tmate-2.4.0-static-linux-amd64.tar.xz
-          sudo chmod +x tmate-2.4.0-static-linux-amd64/tmate
-          tmate-2.4.0-static-linux-amd64/tmate -F
+#      - name: Setup tmate session
+#        if: ${{ failure() || inputs.enable_ssh }}
+#        run: |
+#          wget https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2.4.0-static-linux-amd64.tar.xz
+#          tar -xf tmate-2.4.0-static-linux-amd64.tar.xz
+#          sudo chmod +x tmate-2.4.0-static-linux-amd64/tmate
+#          tmate-2.4.0-static-linux-amd64/tmate -F
