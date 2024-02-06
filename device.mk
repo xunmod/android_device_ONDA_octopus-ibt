@@ -21,9 +21,9 @@ PRODUCT_COPY_FILES += \
     device/ONDA/octopus-ibt/modules/modules/nand.ko:root/nand.ko \
     device/ONDA/octopus-ibt/modules/modules/sunxi_tr.ko:root/sunxi_tr.ko \
     device/ONDA/octopus-ibt/modules/modules/disp.ko:root/disp.ko \
-    device/ONDA/octopus-ibt/modules/modules/sw-device.ko:obj/sw-device.ko \
-    device/ONDA/octopus-ibt/modules/modules/gt9xxf_ts.ko:obj/gt9xxf_ts.ko \
-    device/ONDA/octopus-ibt/modules/modules/gslX680new.ko:obj/gslX680new.ko
+    device/ONDA/octopus-ibt/modules/modules/sw-device.ko:root/sw-device.ko \
+    device/ONDA/octopus-ibt/modules/modules/gt9xxf_ts.ko:root/gt9xxf_ts.ko \
+    device/ONDA/octopus-ibt/modules/modules/gslX680new.ko:root/gslX680new.ko
 
 
 PRODUCT_COPY_FILES += \
