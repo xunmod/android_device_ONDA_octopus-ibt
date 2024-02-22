@@ -1,0 +1,37 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: gamecss/lollipop_buildenv:latest
+    resource_class: large
+    steps:
+      - run:
+          name: Get source
+          command: |
+            mkdir aosp
+            cd aosp
+            pwd
+            df -h
+            git config --global user.email "116288337+xunmod@users.noreply.github.com"
+            git config --global user.name "xunmod@bot"
+            sudo rm -f /usr/bin/python
+            sudo ln -sf /usr/local/bin/python3.8 /usr/bin/python
+            repo init --depth=1 -u https://github.com/pine64-android/manifest -b master
+            repo sync -c -f --no-tags --no-clone-bundle -j16
+            git clone --single-branch -b lollipop --depth 1 https://github.com/xunmod/android_device_ONDA_octopus-ibt device/ONDA/octopus-ibt
+            rm -rf .repo/project-objects
+            rm -r device/softwinner/octopus-ibt
+      - run:
+          name: Build
+          command: |
+            sudo rm -f /usr/bin/python
+            sudo ln -sf /usr/bin/python2.7 /usr/bin/python
+            cd aosp
+            source build/envsetup.sh
+            lunch octopus_ibt-userdebug
+            make -j$(nproc --all)
+            tar -czvf images.tar.gz $(find $GITHUB_WORKSPACE/aosp/out/target/product/octopus-ibt -name *.img | xargs) $(find $GITHUB_WORKSPACE/aosp/out/target/product/octopus_ibt -name *.img | xargs) $(find $GITHUB_WORKSPACE/aosp/out/target/product/octopus-ibt -name *.fex | xargs) $(find $GITHUB_WORKSPACE/aosp/out/target/product/octopus_ibt -name *.fex | xargs)
+
+      - store_artifacts:
+          path: images.tar.gz
