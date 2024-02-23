@@ -33,8 +33,8 @@ jobs:
             cd aosp
             source build/envsetup.sh
             lunch octopus_ibt-userdebug
-            make -j1
-            tar -czvf images.tar.gz $(find $GITHUB_WORKSPACE/aosp/out/target/product/octopus-ibt -name *.img | xargs) $(find $GITHUB_WORKSPACE/aosp/out/target/product/octopus_ibt -name *.img | xargs) $(find $GITHUB_WORKSPACE/aosp/out/target/product/octopus-ibt -name *.fex | xargs) $(find $GITHUB_WORKSPACE/aosp/out/target/product/octopus_ibt -name *.fex | xargs)
+            make -j`nproc --all`
+            tar -czvf images.tar.gz $(find out/target/product/octopus-ibt -name *.img | xargs) $(find out/target/product/octopus_ibt -name *.img | xargs) $(find out/target/product/octopus-ibt -name *.fex | xargs) $(find out/target/product/octopus_ibt -name *.fex | xargs)
 
       - store_artifacts:
-          path: images.tar.gz
+          path: /root/project/aosp/images.tar.gz
