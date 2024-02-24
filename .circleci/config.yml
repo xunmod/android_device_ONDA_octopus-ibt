@@ -33,7 +33,7 @@ jobs:
             cd aosp
             source build/envsetup.sh
             lunch octopus_ibt-userdebug
-            make -j`nproc --all`
+            make -j2
             tar -czvf images.tar.gz $(find out/target/product/octopus-ibt -name *.img | xargs) $(find out/target/product/octopus_ibt -name *.img | xargs) $(find out/target/product/octopus-ibt -name *.fex | xargs) $(find out/target/product/octopus_ibt -name *.fex | xargs)
 
       - store_artifacts:
