@@ -24,9 +24,7 @@ jobs:
             git clone --single-branch -b lollipop --depth 1 https://github.com/xunmod/external_chromium-webview external/chromium-webview
             rm -rf .repo/project-objects
             rm -r device/softwinner/octopus-ibt
-            cd device/ONDA/octopus-ibt
-            patch -p1 < prebuilt_webview.patch
-            cd ../../..
+            patch -p1 < device/ONDA/octopus-ibt/prebuilt_webview.patch
       - run:
           name: Build
           command: |
