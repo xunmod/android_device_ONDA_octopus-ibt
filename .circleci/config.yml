@@ -9,16 +9,14 @@ jobs:
       - run:
           name: Get source
           command: |
-            echo 'JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx6144m"' > ~/.jack-settings   
+            echo 'JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx5120m"' > ~/.jack-settings   
             mkdir aosp
             cd aosp
-            pwd
-            df -h
             git config --global user.email "116288337+xunmod@users.noreply.github.com"
             git config --global user.name "xunmod@bot"
             sudo rm -f /usr/bin/python
             sudo ln -sf /usr/local/bin/python3.8 /usr/bin/python
-            repo init --depth=1 -u https://github.com/pine64-android/manifest -b master
+            repo init --depth=1 -u https://github.com/xunmod/android_manifest -b a64
             repo sync -c -f --no-tags --no-clone-bundle -j32
             git clone --single-branch -b lollipop --depth 1 https://github.com/xunmod/android_device_ONDA_octopus-ibt device/ONDA/octopus-ibt
             git clone --single-branch -b lollipop --depth 1 https://github.com/xunmod/external_chromium-webview external/chromium-webview
@@ -29,7 +27,7 @@ jobs:
           name: Build
           command: |
             export LC_ALL=C
-            export _JAVA_OPTIONS="-Xmx6144m"
+            export _JAVA_OPTIONS="-Xmx5120m"
             sudo rm -f /usr/bin/python
             sudo ln -sf /usr/bin/python2.7 /usr/bin/python
             cd aosp
