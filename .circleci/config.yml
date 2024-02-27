@@ -9,7 +9,7 @@ jobs:
       - run:
           name: Get source
           command: |
-            echo 'JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4096m"' > ~/.jack-settings   
+            echo 'JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx6144m"' > ~/.jack-settings   
             mkdir aosp
             cd aosp
             pwd
@@ -19,7 +19,7 @@ jobs:
             sudo rm -f /usr/bin/python
             sudo ln -sf /usr/local/bin/python3.8 /usr/bin/python
             repo init --depth=1 -u https://github.com/pine64-android/manifest -b master
-            repo sync -c -f --no-tags --no-clone-bundle -j16
+            repo sync -c -f --no-tags --no-clone-bundle -j32
             git clone --single-branch -b lollipop --depth 1 https://github.com/xunmod/android_device_ONDA_octopus-ibt device/ONDA/octopus-ibt
             git clone --single-branch -b lollipop --depth 1 https://github.com/xunmod/external_chromium-webview external/chromium-webview
             rm -rf .repo/project-objects
@@ -29,13 +29,13 @@ jobs:
           name: Build
           command: |
             export LC_ALL=C
-            export _JAVA_OPTIONS="-Xmx4096m"
+            export _JAVA_OPTIONS="-Xmx6144m"
             sudo rm -f /usr/bin/python
             sudo ln -sf /usr/bin/python2.7 /usr/bin/python
             cd aosp
             source build/envsetup.sh
             lunch octopus_ibt-userdebug
-            mm -j16
+            mm -j32
             tar -czvf images.tar.gz $(find out/target/product/octopus-ibt -name *.img | xargs) $(find out/target/product/octopus_ibt -name *.img | xargs) $(find out/target/product/octopus-ibt -name *.fex | xargs) $(find out/target/product/octopus_ibt -name *.fex | xargs)
 
       - store_artifacts:
