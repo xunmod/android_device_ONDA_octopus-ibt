@@ -24,16 +24,17 @@ jobs:
             git clone --single-branch -b lollipop --depth 1 https://github.com/xunmod/external_chromium-webview external/chromium-webview
             rm -rf .repo/project-objects
             rm -r device/softwinner/octopus-ibt
+            cd device/ONDA/octopus-ibt
+            patch -p1 < prebuilt_webview.patch
+            cd ../../..
       - run:
           name: Build
           command: |
             export LC_ALL=C
-            export PRODUCT_PREBUILT_WEBVIEWCHROMIUM=yes
             # export _JAVA_OPTIONS="-Xmx4096m"
             sudo rm -f /usr/bin/python
             sudo ln -sf /usr/bin/python2.7 /usr/bin/python
             cd aosp
-            echo "\$(call inherit-product, external/chromium-webview/Android.mk)" >> target/product/core_minimal.mk
             source build/envsetup.sh
             lunch octopus_ibt-userdebug
             make showcommands -j`nproc --all`

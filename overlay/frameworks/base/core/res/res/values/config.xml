@@ -242,7 +242,4 @@
     <!-- Switch for lockscreen rotation by -->
     <bool name="config_enableLockScreenRotation">true</bool>
 
-    <!-- Use prebuilt webview -->
-    <string name="config_webViewPackageName" translatable="false">com.google.android.webview</string>
-
 </resources>

@@ -1,0 +1,26 @@
+diff --git a/octopus_ibt.mk b/octopus_ibt.mk
+index 5087704..640ed1d 100755
+--- a/octopus_ibt.mk
++++ b/octopus_ibt.mk
+@@ -140,7 +140,8 @@ PRODUCT_AAPT_CONFIG := large xlarge hdpi xhdpi
+ PRODUCT_AAPT_PERF_CONFIG := xhdpi
+ PRODUCT_CHARACTERISTICS := tablet
+ 
+-$(call inherit-product-if-exists, vendor/google/products/gms_base.mk)
++# Prebuilt webview
++PRODUCT_PREBUILT_WEBVIEWCHROMIUM := yes
+ 
+ PRODUCT_BRAND := ONDA
+ PRODUCT_NAME := octopus_ibt
+diff --git a/overlay/frameworks/base/core/res/res/values/config.xml b/overlay/frameworks/base/core/res/res/values/config.xml
+index 40e127d..d86b8fc 100755
+--- a/overlay/frameworks/base/core/res/res/values/config.xml
++++ b/overlay/frameworks/base/core/res/res/values/config.xml
+@@ -242,4 +242,7 @@
+     <!-- Switch for lockscreen rotation by -->
+     <bool name="config_enableLockScreenRotation">true</bool>
+ 
++    <!-- Use prebuilt webview -->
++    <string name="config_webViewPackageName" translatable="false">com.google.android.webview</string>
++
+ </resources>
