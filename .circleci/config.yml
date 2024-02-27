@@ -33,7 +33,7 @@ jobs:
             sudo rm -f /usr/bin/python
             sudo ln -sf /usr/bin/python2.7 /usr/bin/python
             cd aosp
-            echo "$(call inherit-product, external/chromium-webview/Android.mk)" >> target/product/core_minimal.mk
+            echo "\$(call inherit-product, external/chromium-webview/Android.mk)" >> target/product/core_minimal.mk
             source build/envsetup.sh
             lunch octopus_ibt-userdebug
             make showcommands -j`nproc --all`
