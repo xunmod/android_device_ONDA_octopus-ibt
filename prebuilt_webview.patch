@@ -1,7 +1,6 @@
-diff --git a/octopus_ibt.mk b/octopus_ibt.mk
-index 5087704..640ed1d 100755
---- a/octopus_ibt.mk
-+++ b/octopus_ibt.mk
+diff -uprN a/device/ONDA/octopus-ibt/octopus_ibt.mk b/device/ONDA/octopus-ibt/octopus_ibt.mk
+--- a/device/ONDA/octopus-ibt/octopus_ibt.mk
++++ b/device/ONDA/octopus-ibt/octopus_ibt.mk
 @@ -140,7 +140,8 @@ PRODUCT_AAPT_CONFIG := large xlarge hdpi xhdpi
  PRODUCT_AAPT_PERF_CONFIG := xhdpi
  PRODUCT_CHARACTERISTICS := tablet
@@ -12,10 +11,9 @@ index 5087704..640ed1d 100755
  
  PRODUCT_BRAND := ONDA
  PRODUCT_NAME := octopus_ibt
-diff --git a/overlay/frameworks/base/core/res/res/values/config.xml b/overlay/frameworks/base/core/res/res/values/config.xml
-index 40e127d..d86b8fc 100755
---- a/overlay/frameworks/base/core/res/res/values/config.xml
-+++ b/overlay/frameworks/base/core/res/res/values/config.xml
+diff --uprN a/device/ONDA/octopus-ibt/overlay/frameworks/base/core/res/res/values/config.xml b/device/ONDA/octopus-ibt/overlay/frameworks/base/core/res/res/values/config.xml
+--- a/device/ONDA/octopus-ibt/overlay/frameworks/base/core/res/res/values/config.xml
++++ b/device/ONDA/octopus-ibt/overlay/frameworks/base/core/res/res/values/config.xml
 @@ -242,4 +242,7 @@
      <!-- Switch for lockscreen rotation by -->
      <bool name="config_enableLockScreenRotation">true</bool>
@@ -24,3 +22,14 @@ index 40e127d..d86b8fc 100755
 +    <string name="config_webViewPackageName" translatable="false">com.google.android.webview</string>
 +
  </resources>
+diff -uprN a/external/chromium_org/Android.mk b/external/chromium_org/Android.mk
+--- a/external/chromium_org/Android.mk
++++ b/external/chromium_org/Android.mk
+@@ -15,6 +15,7 @@ GYP_CONFIGURATION := Release
+ # If the product is using a prebuilt libwebviewchromium then we need to skip
+ # including most of the makefiles to avoid duplicate target definitions. Some
+ # targets are still needed, so list their makefiles explicitly.
++PRODUCT_PREBUILT_WEBVIEWCHROMIUM := yes
+ ifeq ($(PRODUCT_PREBUILT_WEBVIEWCHROMIUM),yes)
+ GYP_MAKEFILE_STEMS := \
+        $(addprefix $(CHROMIUM_DIR)/v8/tools/gyp/, \
