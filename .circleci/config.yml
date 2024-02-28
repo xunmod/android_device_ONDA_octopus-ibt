@@ -23,8 +23,6 @@ jobs:
             rm -rf .repo/project-objects
             rm -r device/softwinner/octopus-ibt
             patch -p1 < device/ONDA/octopus-ibt/prebuilt_webview.patch
-            cd system/core && curl https://github.com/LineageOS/android_system_core/commit/75ac84c0bf57d646dfae468916fcdcc071570293.patch | patch -p1 - && cd ../..
-            cd frameworks/av && curl https://github.com/LineageOS/android_frameworks_av/commit/5a6788730acfc6fd8f4a6ef89d2c376572a26b55.patch | patch -p1 - && cd ../..
       - run:
           name: Build
           command: |
