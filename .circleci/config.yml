@@ -22,7 +22,6 @@ jobs:
             git clone --single-branch -b lollipop --depth 1 https://github.com/xunmod/external_chromium-webview external/chromium-webview
             rm -rf .repo/project-objects
             rm -r device/softwinner/octopus-ibt
-            patch -p1 < device/ONDA/octopus-ibt/prebuilt_webview.patch
       - run:
           name: Build
           command: |
@@ -33,7 +32,7 @@ jobs:
             cd aosp
             source build/envsetup.sh
             lunch octopus_ibt-userdebug
-            mm -j24
+            mm -j20
             tar -czvf images.tar.gz $(find out/target/product/octopus-ibt -name *.img | xargs) $(find out/target/product/octopus_ibt -name *.img | xargs) $(find out/target/product/octopus-ibt -name *.fex | xargs) $(find out/target/product/octopus_ibt -name *.fex | xargs)
 
       - store_artifacts:

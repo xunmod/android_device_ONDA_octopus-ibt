@@ -1,6 +1,7 @@
 $(call inherit-product, build/target/product/full_base.mk)
 $(call inherit-product, device/softwinner/octopus-common/octopus-common.mk)
 $(call inherit-product-if-exists, device/ONDA/octopus-ibt/modules/modules.mk)
+$(call inherit-product-if-exists, external/chromium-webview/setup.mk)
 
 DEVICE_PACKAGE_OVERLAYS := device/ONDA/octopus-ibt/overlay \
                            $(DEVICE_PACKAGE_OVERLAYS)
