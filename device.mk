@@ -1,10 +1,6 @@
-$(call inherit-product, build/target/product/full_base.mk)
-$(call inherit-product, device/softwinner/octopus-common/octopus-common.mk)
-$(call inherit-product-if-exists, device/ONDA/octopus-ibt/modules/modules.mk)
-$(call inherit-product-if-exists, external/chromium-webview/setup.mk)
-
-DEVICE_PACKAGE_OVERLAYS := device/ONDA/octopus-ibt/overlay \
-                           $(DEVICE_PACKAGE_OVERLAYS)
+DEVICE_PACKAGE_OVERLAYS := \
+    device/ONDA/octopus-ibt/overlay \
+    $(DEVICE_PACKAGE_OVERLAYS)
 
 PRODUCT_PACKAGES += gatord
 
@@ -14,26 +10,26 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     device/ONDA/octopus-ibt/kernel:kernel \
-    device/ONDA/octopus-ibt/fstab.sun8i:root/fstab.sun8i \
-    device/ONDA/octopus-ibt/init.sun8i.rc:root/init.sun8i.rc \
+    device/ONDA/octopus-ibt/rootdir/fstab.sun8i:root/fstab.sun8i \
+    device/ONDA/octopus-ibt/rootdir/init.sun8i.rc:root/init.sun8i.rc \
+    device/ONDA/octopus-ibt/rootdir/init.recovery.sun8i.rc:root/init.recovery.sun8i.rc \
+    device/ONDA/octopus-ibt/rootdir/ueventd.sun8i.rc:root/ueventd.sun8i.rc \
+    device/ONDA/octopus-ibt/rootdir/etc/recovery.fstab:recovery.fstab \
     device/ONDA/octopus-ibt/verity/rsa_key/verity_key:root/verity_key \
-    device/ONDA/octopus-ibt/init.recovery.sun8i.rc:root/init.recovery.sun8i.rc \
-    device/ONDA/octopus-ibt/ueventd.sun8i.rc:root/ueventd.sun8i.rc \
-    device/ONDA/octopus-ibt/recovery.fstab:recovery.fstab \
     device/ONDA/octopus-ibt/modules/modules/nand.ko:root/nand.ko \
     device/ONDA/octopus-ibt/modules/modules/sunxi_tr.ko:root/sunxi_tr.ko \
     device/ONDA/octopus-ibt/modules/modules/disp.ko:root/disp.ko \
     device/ONDA/octopus-ibt/modules/modules/sw-device.ko:obj/sw-device.ko \
-    device/ONDA/octopus-ibt/modules/modules/gt9xxf_ts.ko:obj/gt9xxf_ts.ko \
+    device/ONDA/octopus-ibt/modules/modules/gt9xxf_ts.ko:obj/gt9xxf_ts.ko
 
 PRODUCT_COPY_FILES += \
     device/ONDA/octopus-ibt/configs/camera.cfg:system/etc/camera.cfg \
     device/ONDA/octopus-ibt/configs/cfg-Gallery2.xml:system/etc/cfg-Gallery2.xml \
     device/ONDA/octopus-ibt/configs/media_profiles.xml:system/etc/media_profiles.xml \
-	device/ONDA/octopus-ibt/configs/sunxi-ir.kl:system/usr/keylayout/sunxi-ir.kl \
+    device/ONDA/octopus-ibt/configs/sunxi-ir.kl:system/usr/keylayout/sunxi-ir.kl \
     device/ONDA/octopus-ibt/configs/tp.idc:system/usr/idc/tp.idc \
-	device/ONDA/octopus-ibt/configs/gsensor.cfg:system/usr/gsensor.cfg \
-	device/ONDA/octopus-ibt/configs/sunxi-keyboard.kl:system/usr/keylayout/sunxi-keyboard.kl \
+    device/ONDA/octopus-ibt/configs/gsensor.cfg:system/usr/gsensor.cfg \
+    device/ONDA/octopus-ibt/configs/sunxi-keyboard.kl:system/usr/keylayout/sunxi-keyboard.kl \
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
@@ -50,11 +46,11 @@ PRODUCT_COPY_FILES += \
     device/ONDA/octopus-ibt/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
 PRODUCT_COPY_FILES += \
-    device/ONDA/octopus-ibt/initlogo.rle:root/initlogo.rle  \
-	device/ONDA/octopus-ibt/bootlogo.bmp:system/media/bootlogo.bmp \
+    device/ONDA/octopus-ibt/rootdir/initlogo.rle:root/initlogo.rle \
+    device/ONDA/octopus-ibt/rootdir/system/media/bootlogo.bmp:system/media/bootlogo.bmp
 
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml   \
+    frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
@@ -64,11 +60,11 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.managed_users.xml:system/etc/permissions/android.software.managed_users.xml
 
 #PRODUCT_COPY_FILES += \
-#	device/ONDA/octopus-ibt/media/bootanimation.zip:system/media/bootanimation.zip \
+#  device/ONDA/octopus-ibt/media/bootanimation.zip:system/media/bootanimation.zip \
 
-#camera config for camera detector
+# Camera config for camera detector
 PRODUCT_COPY_FILES += \
-	device/ONDA/octopus-ibt/hawkview/sensor_list_cfg.ini:system/etc/hawkview/sensor_list_cfg.ini
+    device/ONDA/octopus-ibt/hawkview/sensor_list_cfg.ini:system/etc/hawkview/sensor_list_cfg.ini
 
 # Radio Packages and Configuration Flie
 $(call inherit-product, device/softwinner/common/rild/radio_common.mk)
@@ -90,9 +86,9 @@ RODUCT_PACKAGES += Bluetooth
 #rtl8723bs bt fw and config
 $(call inherit-product, hardware/realtek/bluetooth/rtl8723bs/firmware/rtlbtfw_cfg.mk)
 
-#sensor    
+# sensor    
 PRODUCT_COPY_FILES += \
-	device/ONDA/octopus-ibt/sensor.sh:system/bin/sensor.sh
+  device/ONDA/octopus-ibt/sensor.sh:system/bin/sensor.sh
   
 # gps
 $(call inherit-product, device/ONDA/octopus-ibt/gps/gps.mk)
@@ -108,44 +104,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.firmware=v3.0rc1
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapsize=512m \
-    dalvik.vm.heapstartsize=8m \
-    dalvik.vm.heapgrowthlimit=192m \
-    dalvik.vm.heaptargetutilization=0.75 \
-    dalvik.vm.heapminfree=2m \
-    dalvik.vm.heapmaxfree=8m \
-    ro.zygote.disable_gl_preload=true
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.property.tabletUI=false \
-    
-PRODUCT_PROPERTY_OVERRIDES += \
-	persist.sys.language=en	\
-	persist.sys.country=US \
-	ro.sf.lcd_density=120 \
-	ro.sf.rotation=270 \
-	ro.inet.wlan.type=8723bs_vq0 \
-	ro.product.8723b_bt.used=true \
+  ro.sf.lcd_density=120 \
+  ro.sf.rotation=270 \
+  ro.inet.wlan.type=8723bs_vq0 \
+  ro.product.8723b_bt.used=true \
 
 # function
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.bootfast=true \
 #    ro.dmic.used=true
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.timezone=Asia/Shanghai \
-    persist.sys.country=CN \
-    persist.sys.language=zh
+PRODUCT_LOCALES := zh_CN zh_TW en_US
 
 PRODUCT_AAPT_CONFIG := large xlarge hdpi xhdpi
 PRODUCT_AAPT_PERF_CONFIG := xhdpi
 PRODUCT_CHARACTERISTICS := tablet
 
-$(call inherit-product-if-exists, vendor/google/products/gms_base.mk)
-
-PRODUCT_BRAND := ONDA
-PRODUCT_NAME := octopus_ibt
-PRODUCT_DEVICE := octopus-ibt
-PRODUCT_MODEL := V975s Core8
-PRODUCT_BOARD := exdroid
-PRODUCT_MANUFACTURER := ONDA
+$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)

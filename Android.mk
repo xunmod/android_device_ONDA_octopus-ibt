@@ -13,7 +13,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+# This contains the module build definitions for the hardware-specific
+# components for this device.
+#
+# As much as possible, those components should be built unconditionally,
+# with device-specific names to avoid collisions, to avoid device-specific
+# bitrot and build breakages. Building a component unconditionally does
+# *not* include it on all devices, so it is safe even with hardware-specific
+# components.
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_octopus_ibt.mk \
-    $(LOCAL_DIR)/full_octopus_ibt.mk
+ifneq ($(filter octopus-ibt,$(TARGET_DEVICE)),)
+    LOCAL_PATH := $(call my-dir)
+    include $(call first-makefiles-under,$(LOCAL_PATH))
+endif

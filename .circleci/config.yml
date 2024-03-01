@@ -31,9 +31,8 @@ jobs:
             sudo ln -sf /usr/bin/python2.7 /usr/bin/python
             cd aosp
             source build/envsetup.sh
-            lunch octopus_ibt-userdebug
+            lunch aosp_octopus_ibt-userdebug
             mm -j20
-            tar -czvf images.tar.gz $(find out/target/product/octopus-ibt -name *.img | xargs) $(find out/target/product/octopus_ibt -name *.img | xargs) $(find out/target/product/octopus-ibt -name *.fex | xargs) $(find out/target/product/octopus_ibt -name *.fex | xargs)
-
+            tar -czvf images.tar.gz $(find out/target/product/octopus-ibt -name *.img | xargs)
       - store_artifacts:
           path: /root/project/aosp/images.tar.gz
