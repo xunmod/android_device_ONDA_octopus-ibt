@@ -12,6 +12,7 @@ TARGET_NO_KERNEL := false
 
 # Enable dex-preoptimization to speed up first boot sequence
 WITH_DEXPREOPT := true
+DONT_DEXPREOPT_PREBUILTS := true
 
 INSTALLED_KERNEL_TARGET := kernel
 BOARD_KERNEL_CMDLINE := 
