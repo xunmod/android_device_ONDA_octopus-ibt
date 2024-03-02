@@ -5,6 +5,7 @@ DEVICE_PACKAGE_OVERLAYS := \
 PRODUCT_PACKAGES += gatord
 
 PRODUCT_PACKAGES += \
+		Launcher2 \
     VideoPlayer \
     Bluetooth
 
