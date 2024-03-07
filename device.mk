@@ -47,7 +47,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     device/ONDA/octopus-ibt/rootdir/initlogo.rle:root/initlogo.rle \
-    device/ONDA/octopus-ibt/rootdir/system/media/bootlogo.bmp:system/media/bootlogo.bmp
+    device/ONDA/octopus-ibt/media/bootlogo.bmp:system/media/bootlogo.bmp \
+    device/ONDA/octopus-ibt/media/bootanimation.zip:system/media/bootanimation.zip \
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
