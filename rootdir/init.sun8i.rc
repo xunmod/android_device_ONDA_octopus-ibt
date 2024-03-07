@@ -70,11 +70,16 @@ on early-fs
 # tp
     insmod /system/vendor/modules/sw-device.ko
 
+# zram
+    write /sys/block/zram0/disksize 268435456
+    exec /system/bin/mkswap /dev/block/zram0
+    exec /system/bin/swapon /dev/block/zram0
+
     insmod /system/vendor/modules/sunxi_tr.ko
     insmod /system/vendor/modules/disp.ko
     insmod /system/vendor/modules/hdmi.ko
 
-#secure storage 
+# secure storage 
     mkdir /data/secure_store 0777 root system
     insmod /system/vendor/modules/te_sec_storage.ko
 
@@ -161,7 +166,8 @@ on early-fs
 
 on fs
     # UDISK would be mounted as data partition when multiple user enabled.
-    format_userdata /dev/block/by-name/UDISK
+    format_userdata /dev/block/by-name/UDISK ONDA_MID
+    format_userdata /dev/block/by-name/private private
 
 # GPU service
 service pvrsrvctl /system/vendor/bin/pvrsrvctl --start

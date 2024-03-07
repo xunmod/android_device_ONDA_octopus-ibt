@@ -25,8 +25,9 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_CACHEIMAGE_PARTITION_SIZE := 805306368 # 768M
 
 # recovery stuff
-#TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 TARGET_RECOVERY_UI_LIB := librecovery_ui_octopus_ibt
+TARGET_RECOVERY_FSTAB := device/ONDA/octopus-ibt/recovery/recovery.fstab
 SW_BOARD_TOUCH_RECOVERY := true
 
 # wifi and bt configuration

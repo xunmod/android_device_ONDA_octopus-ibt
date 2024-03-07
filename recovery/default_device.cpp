@@ -20,12 +20,12 @@
 #include "device.h"
 #include "screen_ui.h"
 
-#define KEY_VOLUMEDOWN          139 // linux 114
-#define KEY_VOLUMEUP            114 // linux 115
+#define KEY_VOLUMEDOWN          114
+#define KEY_VOLUMEUP            115
 #define KEY_POWER               116
 // to fix the key defined above
 // we can see linux key from linux-3.4/include/linux/input.h
-#define KEY_MENU                115 // linux 139
+#define KEY_MENU                139
 
 static const char* HEADERS[] = { "Volume up/down to move highlight;",
                                  "enter button to select.",
