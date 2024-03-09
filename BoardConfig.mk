@@ -79,7 +79,7 @@ BLUETOOTH_HCI_USE_RTK_H5 := true
 BOARD_HAVE_BLUETOOTH_NAME := rtl8723bs
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/ONDA/octopus-ibt/bluetooth/
 
-gsensor & Gyr sensor
+# gsensor & Gyr sensor
 SW_BOARD_USES_SENSORS_TYPE = lsm9ds0
 
 # boostup code will on command to set CPU roomage and DDR freq

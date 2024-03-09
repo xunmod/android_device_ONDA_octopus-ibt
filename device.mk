@@ -76,9 +76,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.managed_users.xml:system/etc/permissions/android.software.managed_users.xml
 
-PRODUCT_COPY_FILES += \
-    device/ONDA/octopus-ibt/media/bootanimation.zip:system/media/bootanimation.zip
-
 # Camera config for camera detector
 PRODUCT_COPY_FILES += \
     device/ONDA/octopus-ibt/hawkview/sensor_list_cfg.ini:system/etc/hawkview/sensor_list_cfg.ini
