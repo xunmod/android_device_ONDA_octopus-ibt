@@ -25,7 +25,7 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_CACHEIMAGE_PARTITION_SIZE := 805306368 # 768M
 
 # recovery stuff
-TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
 TARGET_RECOVERY_UI_LIB := librecovery_ui_octopus_ibt
 TARGET_RECOVERY_FSTAB := device/ONDA/octopus-ibt/recovery/recovery.fstab
 SW_BOARD_TOUCH_RECOVERY := true
@@ -79,8 +79,8 @@ BLUETOOTH_HCI_USE_RTK_H5 := true
 BOARD_HAVE_BLUETOOTH_NAME := rtl8723bs
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/ONDA/octopus-ibt/bluetooth/
 
-#gsensor & Gyr sensor
-#SW_BOARD_USES_SENSORS_TYPE = lsm9ds0
+gsensor & Gyr sensor
+SW_BOARD_USES_SENSORS_TYPE = lsm9ds0
 
 # boostup code will on command to set CPU roomage and DDR freq
 # default enable
