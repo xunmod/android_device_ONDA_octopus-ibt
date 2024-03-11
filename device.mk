@@ -46,7 +46,7 @@ PRODUCT_COPY_FILES += \
     device/ONDA/octopus-ibt/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
 PRODUCT_COPY_FILES += \
-    device/ONDA/octopus-ibt/egl/pvrsrvctl:system/vendor/bin/pvrsrvctl \
+    device/softwinner/octopus-common/egl/pvrsrvctl:system/vendor/bin/pvrsrvctl \
     device/ONDA/octopus-ibt/egl/libusc.so:system/vendor/lib/libusc.so \
     device/ONDA/octopus-ibt/egl/libglslcompiler.so:system/vendor/lib/libglslcompiler.so \
     device/ONDA/octopus-ibt/egl/libIMGegl.so:system/vendor/lib/libIMGegl.so \
@@ -58,8 +58,8 @@ PRODUCT_COPY_FILES += \
     device/ONDA/octopus-ibt/egl/libEGL_POWERVR_SGX544_115.so:system/vendor/lib/egl/libEGL_POWERVR_SGX544_115.so \
     device/ONDA/octopus-ibt/egl/libGLESv1_CM_POWERVR_SGX544_115.so:system/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX544_115.so \
     device/ONDA/octopus-ibt/egl/libGLESv2_POWERVR_SGX544_115.so:system/vendor/lib/egl/libGLESv2_POWERVR_SGX544_115.so \
-    device/ONDA/octopus-ibt/egl/gralloc.sun8i.so:system/vendor/lib/hw/gralloc.sun8i.so \
-    device/ONDA/octopus-ibt/egl/powervr.ini:system/etc/powervr.ini
+		device/softwinner/octopus-common/egl/gralloc.sun8i.so:system/vendor/lib/hw/gralloc.sun8i.so \
+    device/softwinner/octopus-common/egl/powervr.ini:system/etc/powervr.ini
 
 PRODUCT_COPY_FILES += \
     device/ONDA/octopus-ibt/rootdir/initlogo.rle:root/initlogo.rle \

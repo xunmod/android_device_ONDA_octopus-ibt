@@ -165,8 +165,6 @@ on early-fs
     chown system system /data/gps
 
 on fs
-    # UDISK would be mounted as data partition when multiple user enabled.
-    format_userdata /dev/block/by-name/UDISK ONDA_MID
     format_userdata /dev/block/by-name/private private
 
 # GPU service
