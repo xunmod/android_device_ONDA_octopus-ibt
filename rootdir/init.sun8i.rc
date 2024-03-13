@@ -33,6 +33,9 @@ on post-fs-data
     setprop vold.post_fs_data_done 1
     # to force to start sdcard
     class_start late_start
+    start log_kernel
+    start log_android
+    start logger_service
 
 on charger
     insmod sunxi_tr.ko

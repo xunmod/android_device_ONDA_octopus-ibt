@@ -5,9 +5,11 @@ DEVICE_PACKAGE_OVERLAYS := \
 PRODUCT_PACKAGES += gatord
 
 PRODUCT_PACKAGES += \
-		Launcher2 \
     VideoPlayer \
-    Bluetooth
+    Bluetooth \
+		LogCopyService \
+		LoggerService
+
 
 PRODUCT_COPY_FILES += \
     device/ONDA/octopus-ibt/kernel:kernel \
