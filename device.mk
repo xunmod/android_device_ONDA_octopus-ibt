@@ -46,20 +46,8 @@ PRODUCT_COPY_FILES += \
     device/ONDA/octopus-ibt/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
 PRODUCT_COPY_FILES += \
-    device/softwinner/octopus-common/egl/pvrsrvctl:system/vendor/bin/pvrsrvctl \
-    device/ONDA/octopus-ibt/egl/libusc.so:system/vendor/lib/libusc.so \
-    device/ONDA/octopus-ibt/egl/libglslcompiler.so:system/vendor/lib/libglslcompiler.so \
-    device/ONDA/octopus-ibt/egl/libIMGegl.so:system/vendor/lib/libIMGegl.so \
-    device/ONDA/octopus-ibt/egl/libpvr2d.so:system/vendor/lib/libpvr2d.so \
-    device/ONDA/octopus-ibt/egl/libpvrANDROID_WSEGL.so:system/vendor/lib/libpvrANDROID_WSEGL.so \
-    device/ONDA/octopus-ibt/egl/libPVRScopeServices.so:system/vendor/lib/libPVRScopeServices.so \
     device/ONDA/octopus-ibt/egl/libsrv_init.so:system/vendor/lib/libsrv_init.so \
-    device/ONDA/octopus-ibt/egl/libsrv_um.so:system/vendor/lib/libsrv_um.so \
-    device/ONDA/octopus-ibt/egl/libEGL_POWERVR_SGX544_115.so:system/vendor/lib/egl/libEGL_POWERVR_SGX544_115.so \
-    device/ONDA/octopus-ibt/egl/libGLESv1_CM_POWERVR_SGX544_115.so:system/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX544_115.so \
-    device/ONDA/octopus-ibt/egl/libGLESv2_POWERVR_SGX544_115.so:system/vendor/lib/egl/libGLESv2_POWERVR_SGX544_115.so \
-		device/softwinner/octopus-common/egl/gralloc.sun8i.so:system/vendor/lib/hw/gralloc.sun8i.so \
-    device/softwinner/octopus-common/egl/powervr.ini:system/etc/powervr.ini
+    device/ONDA/octopus-ibt/egl/libsrv_um.so:system/vendor/lib/libsrv_um.so
 
 PRODUCT_COPY_FILES += \
     device/ONDA/octopus-ibt/rootdir/initlogo.rle:root/initlogo.rle \
