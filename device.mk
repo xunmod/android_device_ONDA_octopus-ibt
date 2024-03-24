@@ -48,10 +48,6 @@ PRODUCT_COPY_FILES += \
     device/ONDA/octopus-ibt/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
 PRODUCT_COPY_FILES += \
-    device/ONDA/octopus-ibt/egl/libsrv_init.so:system/vendor/lib/libsrv_init.so \
-    device/ONDA/octopus-ibt/egl/libsrv_um.so:system/vendor/lib/libsrv_um.so
-
-PRODUCT_COPY_FILES += \
     device/ONDA/octopus-ibt/rootdir/initlogo.rle:root/initlogo.rle \
     device/ONDA/octopus-ibt/media/bootlogo.bmp:system/media/bootlogo.bmp \
     device/ONDA/octopus-ibt/media/bootanimation.zip:system/media/bootanimation.zip \
