@@ -3,6 +3,7 @@ DEVICE_PACKAGE_OVERLAYS := \
     $(DEVICE_PACKAGE_OVERLAYS)
 
 PRODUCT_PACKAGES += gatord
+PRODUCT_PACKAGES += libGLES_android
 
 PRODUCT_PACKAGES += \
     VideoPlayer \
@@ -90,6 +91,10 @@ $(call inherit-product, hardware/realtek/bluetooth/rtl8723bs/firmware/rtlbtfw_cf
 PRODUCT_COPY_FILES += \
   device/ONDA/octopus-ibt/sensor.sh:system/bin/sensor.sh
   
+# egl
+PRODUCT_COPY_FILES += \
+  device/ONDA/octopus-ibt/egl/gralloc.sun8i.so:system/vendor/lib/hw/gralloc.sun8i.so
+
 # gps
 $(call inherit-product, device/ONDA/octopus-ibt/gps/gps.mk)
 
