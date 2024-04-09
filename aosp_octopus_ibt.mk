@@ -31,5 +31,5 @@ $(call inherit-product, device/softwinner/octopus-common/octopus-common.mk)
 $(call inherit-product, device/ONDA/octopus-ibt/device.mk)
 $(call inherit-product-if-exists, device/ONDA/octopus-ibt/modules/modules.mk)
 
-# Prebuilt webview
+$(call inherit-product-if-exists, vendor/google/products/gms_base.mk)
 $(call inherit-product-if-exists, external/chromium-webview/setup.mk)
