@@ -3,14 +3,12 @@ DEVICE_PACKAGE_OVERLAYS := \
     $(DEVICE_PACKAGE_OVERLAYS)
 
 PRODUCT_PACKAGES += gatord
-PRODUCT_PACKAGES += libGLES_android
 
 PRODUCT_PACKAGES += \
     VideoPlayer \
     Bluetooth \
 		LogCopyService \
 		LoggerService
-
 
 PRODUCT_COPY_FILES += \
     device/ONDA/octopus-ibt/kernel:kernel \
@@ -23,7 +21,8 @@ PRODUCT_COPY_FILES += \
     device/ONDA/octopus-ibt/modules/modules/sunxi_tr.ko:root/sunxi_tr.ko \
     device/ONDA/octopus-ibt/modules/modules/disp.ko:root/disp.ko \
     device/ONDA/octopus-ibt/modules/modules/sw-device.ko:obj/sw-device.ko \
-    device/ONDA/octopus-ibt/modules/modules/gt9xxf_ts.ko:obj/gt9xxf_ts.ko
+    device/ONDA/octopus-ibt/modules/modules/gt9xxf_ts.ko:obj/gt9xxf_ts.ko \
+    device/ONDA/octopus-ibt/modules/modules/gslX680new.ko:obj/gslX680new.ko
 
 PRODUCT_COPY_FILES += \
     device/ONDA/octopus-ibt/configs/camera.cfg:system/etc/camera.cfg \
@@ -37,9 +36,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
-    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/native/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml
@@ -74,13 +72,13 @@ $(call inherit-product, device/softwinner/common/rild/radio_common.mk)
 
 ## camera config for isp
 PRODUCT_COPY_FILES += \
-    device/softwinner/octopus-common/hawkview/8M/ov8858_4lane/isp_3a_param.ini:system/etc/hawkview/ov8858_4lane/isp_3a_param.ini \
-    device/softwinner/octopus-common/hawkview/8M/ov8858_4lane/isp_iso_param.ini:system/etc/hawkview/ov8858_4lane/isp_iso_param.ini \
-    device/softwinner/octopus-common/hawkview/8M/ov8858_4lane/isp_test_param.ini:system/etc/hawkview/ov8858_4lane/isp_test_param.ini \
-    device/softwinner/octopus-common/hawkview/8M/ov8858_4lane/isp_tuning_param.ini:system/etc/hawkview/ov8858_4lane/isp_tuning_param.ini \
-    device/softwinner/octopus-common/hawkview/8M/ov8858_4lane/bin/gamma_tbl.bin:system/etc/hawkview/ov8858_4lane/bin/gamma_tbl.bin \
-    device/softwinner/octopus-common/hawkview/8M/ov8858_4lane/bin/hdr_tbl.bin:system/etc/hawkview/ov8858_4lane/bin/hdr_tbl.bin \
-    device/softwinner/octopus-common/hawkview/8M/ov8858_4lane/bin/lsc_tbl.bin:system/etc/hawkview/ov8858_4lane/bin/lsc_tbl.bin
+    device/ONDA/octopus-ibt/hawkview/5M/ov5647/isp_3a_param.ini:system/etc/hawkview/ov5647/isp_3a_param.ini \
+    device/ONDA/octopus-ibt/hawkview/5M/ov5647/isp_iso_param.ini:system/etc/hawkview/ov5647/isp_iso_param.ini \
+    device/ONDA/octopus-ibt/hawkview/5M/ov5647/isp_test_param.ini:system/etc/hawkview/ov5647/isp_test_param.ini \
+    device/ONDA/octopus-ibt/hawkview/5M/ov5647/isp_tuning_param.ini:system/etc/hawkview/ov5647/isp_tuning_param.ini \
+    device/ONDA/octopus-ibt/hawkview/5M/ov5647/bin/gamma_tbl.bin:system/etc/hawkview/ov5647/bin/gamma_tbl.bin \
+    device/ONDA/octopus-ibt/hawkview/5M/ov5647/bin/hdr_tbl.bin:system/etc/hawkview/ov5647/bin/hdr_tbl.bin \
+    device/ONDA/octopus-ibt/hawkview/5M/ov5647/bin/lsc_tbl.bin:system/etc/hawkview/ov5647/bin/lsc_tbl.bin
 
 
 RODUCT_PACKAGES += Bluetooth
@@ -91,19 +89,12 @@ $(call inherit-product, hardware/realtek/bluetooth/rtl8723bs/firmware/rtlbtfw_cf
 PRODUCT_COPY_FILES += \
   device/ONDA/octopus-ibt/sensor.sh:system/bin/sensor.sh
   
-# egl
-PRODUCT_COPY_FILES += \
-  device/ONDA/octopus-ibt/egl/gralloc.sun8i.so:system/vendor/lib/hw/gralloc.sun8i.so
-
-# gps
-$(call inherit-product, device/ONDA/octopus-ibt/gps/gps.mk)
-
 # usb
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb \
     ro.adb.secure=0 \
     ro.sys.mutedrm=false \
-    rw.logger=0
+    rw.logger=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.firmware=v3.0rc1
