@@ -14,5 +14,5 @@
 # limitations under the License.
 #
 
-$(call inherit-product, device/ONDA/octopus-ibt/aosp_octopus_ibt.mk)
+$(call inherit-product, device/softwinner/octopus-ibt/aosp_octopus_ibt.mk)
 PRODUCT_NAME := full_octopus_ibt

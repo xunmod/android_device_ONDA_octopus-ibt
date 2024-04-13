@@ -1,55 +1,50 @@
 DEVICE_PACKAGE_OVERLAYS := \
-    device/ONDA/octopus-ibt/overlay \
+    device/softwinner/octopus-ibt/overlay \
     $(DEVICE_PACKAGE_OVERLAYS)
 
 PRODUCT_PACKAGES += gatord
 
 PRODUCT_PACKAGES += \
     VideoPlayer \
-    Bluetooth \
-		LogCopyService \
-		LoggerService
+    Bluetooth
 
 PRODUCT_COPY_FILES += \
-    device/ONDA/octopus-ibt/kernel:kernel \
-    device/ONDA/octopus-ibt/rootdir/fstab.sun8i:root/fstab.sun8i \
-    device/ONDA/octopus-ibt/rootdir/init.sun8i.rc:root/init.sun8i.rc \
-    device/ONDA/octopus-ibt/rootdir/init.recovery.sun8i.rc:root/init.recovery.sun8i.rc \
-    device/ONDA/octopus-ibt/rootdir/ueventd.sun8i.rc:root/ueventd.sun8i.rc \
-    device/ONDA/octopus-ibt/verity/rsa_key/verity_key:root/verity_key \
-    device/ONDA/octopus-ibt/modules/modules/nand.ko:root/nand.ko \
-    device/ONDA/octopus-ibt/modules/modules/sunxi_tr.ko:root/sunxi_tr.ko \
-    device/ONDA/octopus-ibt/modules/modules/disp.ko:root/disp.ko \
-    device/ONDA/octopus-ibt/modules/modules/sw-device.ko:obj/sw-device.ko \
-    device/ONDA/octopus-ibt/modules/modules/gt9xxf_ts.ko:obj/gt9xxf_ts.ko \
-    device/ONDA/octopus-ibt/modules/modules/gslX680new.ko:obj/gslX680new.ko
+    device/softwinner/octopus-ibt/kernel:kernel \
+    device/softwinner/octopus-ibt/rootdir/fstab.sun8i:root/fstab.sun8i \
+    device/softwinner/octopus-ibt/rootdir/init.sun8i.rc:root/init.sun8i.rc \
+    device/softwinner/octopus-ibt/rootdir/init.recovery.sun8i.rc:root/init.recovery.sun8i.rc \
+    device/softwinner/octopus-ibt/rootdir/ueventd.sun8i.rc:root/ueventd.sun8i.rc \
+    device/softwinner/octopus-ibt/verity/rsa_key/verity_key:root/verity_key \
+    device/softwinner/octopus-ibt/modules/modules/nand.ko:root/nand.ko \
+    device/softwinner/octopus-ibt/modules/modules/sunxi_tr.ko:root/sunxi_tr.ko \
+    device/softwinner/octopus-ibt/modules/modules/disp.ko:root/disp.ko \
+    device/softwinner/octopus-ibt/modules/modules/sw-device.ko:obj/sw-device.ko \
+    device/softwinner/octopus-ibt/modules/modules/gt9xxf_ts.ko:obj/gt9xxf_ts.ko \
+    device/softwinner/octopus-ibt/modules/modules/gslX680new.ko:obj/gslX680new.ko
 
 PRODUCT_COPY_FILES += \
-    device/ONDA/octopus-ibt/configs/camera.cfg:system/etc/camera.cfg \
-    device/ONDA/octopus-ibt/configs/cfg-Gallery2.xml:system/etc/cfg-Gallery2.xml \
-    device/ONDA/octopus-ibt/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    device/ONDA/octopus-ibt/configs/sunxi-ir.kl:system/usr/keylayout/sunxi-ir.kl \
-    device/ONDA/octopus-ibt/configs/tp.idc:system/usr/idc/tp.idc \
-    device/ONDA/octopus-ibt/configs/gsensor.cfg:system/usr/gsensor.cfg \
-    device/ONDA/octopus-ibt/configs/sunxi-keyboard.kl:system/usr/keylayout/sunxi-keyboard.kl \
+    device/softwinner/octopus-ibt/configs/camera.cfg:system/etc/camera.cfg \
+    device/softwinner/octopus-ibt/configs/cfg-Gallery2.xml:system/etc/cfg-Gallery2.xml \
+    device/softwinner/octopus-ibt/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    device/softwinner/octopus-ibt/configs/sunxi-ir.kl:system/usr/keylayout/sunxi-ir.kl \
+    device/softwinner/octopus-ibt/configs/tp.idc:system/usr/idc/tp.idc \
+    device/softwinner/octopus-ibt/configs/gsensor.cfg:system/usr/gsensor.cfg \
+    device/softwinner/octopus-ibt/configs/sunxi-keyboard.kl:system/usr/keylayout/sunxi-keyboard.kl \
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-    frameworks/native/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml
 
 
 PRODUCT_COPY_FILES += \
-    device/ONDA/octopus-ibt/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
-
-PRODUCT_COPY_FILES += \
-    device/ONDA/octopus-ibt/rootdir/initlogo.rle:root/initlogo.rle \
-    device/ONDA/octopus-ibt/media/bootlogo.bmp:system/media/bootlogo.bmp \
-    device/ONDA/octopus-ibt/media/bootanimation.zip:system/media/bootanimation.zip \
+    device/softwinner/octopus-ibt/rootdir/initlogo.rle:root/initlogo.rle \
+    device/softwinner/octopus-ibt/media/bootlogo.bmp:system/media/bootlogo.bmp \
+    device/softwinner/octopus-ibt/media/bootanimation.zip:system/media/bootanimation.zip \
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
@@ -63,7 +58,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera config for camera detector
 PRODUCT_COPY_FILES += \
-    device/ONDA/octopus-ibt/hawkview/sensor_list_cfg.ini:system/etc/hawkview/sensor_list_cfg.ini
+    device/softwinner/octopus-ibt/hawkview/sensor_list_cfg.ini:system/etc/hawkview/sensor_list_cfg.ini
 
 # Radio Packages and Configuration Flie
 $(call inherit-product, device/softwinner/common/rild/radio_common.mk)
@@ -72,13 +67,13 @@ $(call inherit-product, device/softwinner/common/rild/radio_common.mk)
 
 ## camera config for isp
 PRODUCT_COPY_FILES += \
-    device/ONDA/octopus-ibt/hawkview/5M/ov5647/isp_3a_param.ini:system/etc/hawkview/ov5647/isp_3a_param.ini \
-    device/ONDA/octopus-ibt/hawkview/5M/ov5647/isp_iso_param.ini:system/etc/hawkview/ov5647/isp_iso_param.ini \
-    device/ONDA/octopus-ibt/hawkview/5M/ov5647/isp_test_param.ini:system/etc/hawkview/ov5647/isp_test_param.ini \
-    device/ONDA/octopus-ibt/hawkview/5M/ov5647/isp_tuning_param.ini:system/etc/hawkview/ov5647/isp_tuning_param.ini \
-    device/ONDA/octopus-ibt/hawkview/5M/ov5647/bin/gamma_tbl.bin:system/etc/hawkview/ov5647/bin/gamma_tbl.bin \
-    device/ONDA/octopus-ibt/hawkview/5M/ov5647/bin/hdr_tbl.bin:system/etc/hawkview/ov5647/bin/hdr_tbl.bin \
-    device/ONDA/octopus-ibt/hawkview/5M/ov5647/bin/lsc_tbl.bin:system/etc/hawkview/ov5647/bin/lsc_tbl.bin
+    device/softwinner/octopus-ibt/hawkview/5M/ov5647/isp_3a_param.ini:system/etc/hawkview/ov5647/isp_3a_param.ini \
+    device/softwinner/octopus-ibt/hawkview/5M/ov5647/isp_iso_param.ini:system/etc/hawkview/ov5647/isp_iso_param.ini \
+    device/softwinner/octopus-ibt/hawkview/5M/ov5647/isp_test_param.ini:system/etc/hawkview/ov5647/isp_test_param.ini \
+    device/softwinner/octopus-ibt/hawkview/5M/ov5647/isp_tuning_param.ini:system/etc/hawkview/ov5647/isp_tuning_param.ini \
+    device/softwinner/octopus-ibt/hawkview/5M/ov5647/bin/gamma_tbl.bin:system/etc/hawkview/ov5647/bin/gamma_tbl.bin \
+    device/softwinner/octopus-ibt/hawkview/5M/ov5647/bin/hdr_tbl.bin:system/etc/hawkview/ov5647/bin/hdr_tbl.bin \
+    device/softwinner/octopus-ibt/hawkview/5M/ov5647/bin/lsc_tbl.bin:system/etc/hawkview/ov5647/bin/lsc_tbl.bin
 
 
 RODUCT_PACKAGES += Bluetooth
@@ -87,28 +82,27 @@ $(call inherit-product, hardware/realtek/bluetooth/rtl8723bs/firmware/rtlbtfw_cf
 
 # sensor    
 PRODUCT_COPY_FILES += \
-  device/ONDA/octopus-ibt/sensor.sh:system/bin/sensor.sh
+  device/softwinner/octopus-ibt/sensor.sh:system/bin/sensor.sh
   
 # usb
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb \
     ro.adb.secure=0 \
     ro.sys.mutedrm=false \
-    rw.logger=1
+    rw.logger=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.firmware=v3.0rc1
 
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.sf.lcd_density=120 \
+  ro.sf.lcd_density=160 \
   ro.sf.rotation=270 \
-  ro.inet.wlan.type=8723bs_vq0 \
-  ro.product.8723b_bt.used=true \
+  ro.product.8723b_bt.used=true
 
 # function
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.bootfast=true \
-#    ro.dmic.used=true
+    ro.dmic.used=true
 
 PRODUCT_LOCALES := zh_CN zh_TW en_US
 

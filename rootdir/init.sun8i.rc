@@ -33,9 +33,6 @@ on post-fs-data
     setprop vold.post_fs_data_done 1
     # to force to start sdcard
     class_start late_start
-    start log_kernel
-    start log_android
-    start logger_service
 
 on charger
     insmod sunxi_tr.ko
@@ -89,10 +86,6 @@ on early-fs
 # gpu
     insmod /system/vendor/modules/pvrsrvkm.ko
 
-#setproperty for double speak
-		insmod /system/vendor/modules/gpio_operate.ko
-		setup_property ro.inet.double_speaker_used
-
     setprop ro.crypto.fuse_sdcard true
     swapon_all /fstab.sun8i
     start installd
@@ -104,7 +97,7 @@ on early-fs
     insmod /system/vendor/modules/actuator.ko
     insmod /system/vendor/modules/vfe_os.ko
     insmod /system/vendor/modules/vfe_subdev.ko
-    insmod /system/vendor/modules/dw9714_act.ko
+    insmod /system/vendor/modules/ad5820_act.ko
     insmod /system/vendor/modules/gc0308.ko
     insmod /system/vendor/modules/gc2035.ko
     insmod /system/vendor/modules/gc0328.ko 
@@ -130,12 +123,11 @@ on early-fs
 
 #inet_recover
        insmod /system/vendor/modules/inet_recover.ko
-		
-# bcm bluetooth
-    # uart device
-    chmod 660 /dev/ttyS1
+
+#realtek bluetooth
+    # UART device
+    chmod 0660 /dev/ttyS1
     chown bluetooth net_bt_stack /dev/ttyS1
-    mkdir /data/misc/bluedroid 770 bluetooth net_bt_stack
 
     # power up/down interface
     chmod 0660 /sys/class/rfkill/rfkill0/state
@@ -154,7 +146,7 @@ on early-fs
     chmod 0220 /proc/bluetooth/sleep/btwrite
     chown bluetooth net_bt_stack /proc/bluetooth/sleep/lpm
     chown bluetooth net_bt_stack /proc/bluetooth/sleep/btwrite
-    write /proc/bluetooth/sleep/lpm 1
+    write /proc/bluetooth/sleep/lpm 1		
 
 # gps
 #    chown root system /dev/ttyS2
