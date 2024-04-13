@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd android
 rm -r device/softwinner/common/overlay/packages/apps/Launcher2/res
 rm -r device/softwinner/octopus-common/overlay/packages
 

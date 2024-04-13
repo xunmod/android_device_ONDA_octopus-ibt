@@ -28,6 +28,7 @@ PRODUCT_COPY_FILES += \
     device/softwinner/octopus-ibt/configs/media_profiles.xml:system/etc/media_profiles.xml \
     device/softwinner/octopus-ibt/configs/sunxi-ir.kl:system/usr/keylayout/sunxi-ir.kl \
     device/softwinner/octopus-ibt/configs/tp.idc:system/usr/idc/tp.idc \
+    device/softwinner/octopus-ibt/configs/tp.idc:system/usr/idc/gt912_ts.idc \
     device/softwinner/octopus-ibt/configs/gsensor.cfg:system/usr/gsensor.cfg \
     device/softwinner/octopus-ibt/configs/sunxi-keyboard.kl:system/usr/keylayout/sunxi-keyboard.kl \
 
