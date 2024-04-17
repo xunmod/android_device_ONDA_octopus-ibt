@@ -8,7 +8,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     VideoPlayer \
-    Bluetooth
+		FMRadio \
+		MT
 
 PRODUCT_COPY_FILES += \
     device/softwinner/octopus-ibt/kernel:kernel \
@@ -67,8 +68,7 @@ $(call inherit-product, device/softwinner/common/rild/radio_common.mk)
 #$(call inherit-product, device/softwinner/common/ril_modem/huawei/mu509/huawei_mu509.mk)
 #$(call inherit-product, device/softwinner/common/ril_modem/Oviphone/em55/oviphone_em55.mk)
 
-
-RODUCT_PACKAGES += Bluetooth
+PRODUCT_PACKAGES += Bluetooth
 #rtl8723bs bt fw and config
 $(call inherit-product, hardware/realtek/bluetooth/rtl8723bs/firmware/rtlbtfw_cfg.mk)
 
