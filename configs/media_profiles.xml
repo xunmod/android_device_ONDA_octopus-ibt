@@ -80,8 +80,7 @@
   <!-- Back Camera -->
   <!-- Front Camera -->
   
-  <CamcorderProfiles cameraId="0">
-        
+  <CamcorderProfiles cameraId="0" startOffsetMs="700">
         <EncoderProfile quality="480p" fileFormat="mp4" duration="30">
             <Video codec="h264"
                    bitRate="1500000"
@@ -94,6 +93,9 @@
                    sampleRate="8000"
                    channels="1" />
         </EncoderProfile>
+	
+	
+	
 	    	
 	    	<EncoderProfile quality="timelapse480p" fileFormat="mp4" duration="30">
             <Video codec="h264"
@@ -118,14 +120,15 @@
 
     </CamcorderProfiles> 
     
-  <CamcorderProfiles cameraId="1">
+  <CamcorderProfiles cameraId="1" startOffsetMs="700">
+
 
         <EncoderProfile quality="480p" fileFormat="mp4" duration="30">
             <Video codec="h264"
                    bitRate="1500000"
                    width="640"
                    height="480"
-                   frameRate="10" />
+                   frameRate="20" />
 
             <Audio codec="aac"
                    bitRate="12200"
@@ -138,14 +141,14 @@
                    bitRate="1500000"
                    width="640"
                    height="480"
-                   frameRate="10" />
+                   frameRate="20" />
 
             <Audio codec="aac"
                    bitRate="12200"
                    sampleRate="8000"
                    channels="1" />
         </EncoderProfile>  
-        
+
         <ImageEncoding quality="90" />
         <ImageEncoding quality="80" />
         <ImageEncoding quality="70" />
@@ -163,15 +166,15 @@
          or query the capabilities of the codec at all if it is disabled
     -->
     <VideoEncoderCap name="h264" enabled="true"
-        minBitRate="64000" maxBitRate="3000000"
-        minFrameWidth="176" maxFrameWidth="1600"
-        minFrameHeight="144" maxFrameHeight="1200"
+        minBitRate="64000" maxBitRate="8000000"
+        minFrameWidth="176" maxFrameWidth="4096"
+        minFrameHeight="144" maxFrameHeight="4096"
         minFrameRate="1" maxFrameRate="30" />
 
     <AudioEncoderCap name="aac" enabled="true"
         minBitRate="12200" maxBitRate="51200"
         minSampleRate="8000" maxSampleRate="44100"
-        minChannels="1" maxChannels="2" />
+        minChannels="1" maxChannels="1" />
 
     <AudioEncoderCap name="amrwb" enabled="true"
         minBitRate="6600" maxBitRate="23050"
@@ -217,7 +220,7 @@
     <!--
       Codec = h.264, Baseline profile, level 4.1
     -->
-    <ExportVideoProfile name="h264" profile= "1" level="4096"/>
+    <ExportVideoProfile name="h264" profile= "2" level="4096"/>
     <!--
       Codec = h.263, Baseline profile, level 0
     -->

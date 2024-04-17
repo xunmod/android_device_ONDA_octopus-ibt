@@ -28,7 +28,6 @@ PRODUCT_COPY_FILES += \
     device/softwinner/octopus-ibt/configs/camera.cfg:system/etc/camera.cfg \
     device/softwinner/octopus-ibt/configs/cfg-Gallery2.xml:system/etc/cfg-Gallery2.xml \
     device/softwinner/octopus-ibt/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    device/softwinner/octopus-ibt/configs/sunxi-ir.kl:system/usr/keylayout/sunxi-ir.kl \
     device/softwinner/octopus-ibt/configs/tp.idc:system/usr/idc/tp.idc \
     device/softwinner/octopus-ibt/configs/tp.idc:system/usr/idc/gt912_ts.idc \
     device/softwinner/octopus-ibt/configs/gsensor.cfg:system/usr/gsensor.cfg \
@@ -67,16 +66,6 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, device/softwinner/common/rild/radio_common.mk)
 #$(call inherit-product, device/softwinner/common/ril_modem/huawei/mu509/huawei_mu509.mk)
 #$(call inherit-product, device/softwinner/common/ril_modem/Oviphone/em55/oviphone_em55.mk)
-
-## camera config for isp
-PRODUCT_COPY_FILES += \
-    device/softwinner/octopus-ibt/hawkview/5M/ov5647/isp_3a_param.ini:system/etc/hawkview/ov5647/isp_3a_param.ini \
-    device/softwinner/octopus-ibt/hawkview/5M/ov5647/isp_iso_param.ini:system/etc/hawkview/ov5647/isp_iso_param.ini \
-    device/softwinner/octopus-ibt/hawkview/5M/ov5647/isp_test_param.ini:system/etc/hawkview/ov5647/isp_test_param.ini \
-    device/softwinner/octopus-ibt/hawkview/5M/ov5647/isp_tuning_param.ini:system/etc/hawkview/ov5647/isp_tuning_param.ini \
-    device/softwinner/octopus-ibt/hawkview/5M/ov5647/bin/gamma_tbl.bin:system/etc/hawkview/ov5647/bin/gamma_tbl.bin \
-    device/softwinner/octopus-ibt/hawkview/5M/ov5647/bin/hdr_tbl.bin:system/etc/hawkview/ov5647/bin/hdr_tbl.bin \
-    device/softwinner/octopus-ibt/hawkview/5M/ov5647/bin/lsc_tbl.bin:system/etc/hawkview/ov5647/bin/lsc_tbl.bin
 
 
 RODUCT_PACKAGES += Bluetooth
