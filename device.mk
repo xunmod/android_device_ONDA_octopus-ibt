@@ -2,7 +2,9 @@ DEVICE_PACKAGE_OVERLAYS := \
     device/softwinner/octopus-ibt/overlay \
     $(DEVICE_PACKAGE_OVERLAYS)
 
-PRODUCT_PACKAGES += gatord
+PRODUCT_PACKAGES += \
+		gatord \
+		sensors.exdroid
 
 PRODUCT_PACKAGES += \
     VideoPlayer \

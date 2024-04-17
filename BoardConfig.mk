@@ -25,7 +25,7 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432 # 32M
 #BOARD_CACHEIMAGE_PARTITION_SIZE := 805306368 # 768M
 
 # recovery stuff
-#TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
+TARGET_RECOVERY_PIXEL_FORMAT := "ARGB_8888"  # Unsupported... What should I do
 TARGET_RECOVERY_UI_LIB := librecovery_ui_octopus_ibt
 TARGET_RECOVERY_FSTAB := device/softwinner/octopus-ibt/recovery/recovery.fstab
 SW_BOARD_TOUCH_RECOVERY := true
@@ -57,3 +57,5 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/softwinner/octopus-ibt/blu
 # boostup code will on command to set CPU roomage and DDR freq
 # default enable
 TARGET_USE_BOOSTUP_OPZ := true
+
+SW_BOARD_USES_SENSORS_TYPE := aw_sensors
