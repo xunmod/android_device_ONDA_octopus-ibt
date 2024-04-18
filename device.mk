@@ -3,6 +3,7 @@ DEVICE_PACKAGE_OVERLAYS := \
     $(DEVICE_PACKAGE_OVERLAYS)
 
 PRODUCT_PACKAGES += \
+		su \
 		gatord \
 		sensors.exdroid
 
