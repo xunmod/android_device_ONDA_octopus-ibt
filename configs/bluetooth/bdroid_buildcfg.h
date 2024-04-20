@@ -18,7 +18,7 @@
 
 #ifdef BLUETOOTH_RTK
 
-    //#define BTM_DEF_LOCAL_NAME   "astar-d7"
+    #define BTM_DEF_LOCAL_NAME   "V975s Core8"
 
     // SERVICE_CLASS:0x1A (Bit17 -Networking,Bit19 - Capturing,Bit20 -Object Transfer)
     // MAJOR CLASS: COMPUTER
@@ -56,7 +56,7 @@
     #define BT_HCI_DEVICE_NODE_MAX_LEN 512
 
 #else /* BLUETOOTH_BROADCOM */
-
+    #error This device uses RTL wifi
     //#define BTM_DEF_LOCAL_NAME   "HP 7"
 
     // SERVICE_CLASS:0x5A (Bit17 -Networking,Bit19 - Capturing,Bit20 -Object Transfer,Bit22 -Telephony)
