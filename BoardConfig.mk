@@ -41,8 +41,8 @@ ifeq ($(BOARD_WIFI_VENDOR), realtek)
     BOARD_HOSTAPD_DRIVER        := NL80211
     BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_rtl
 
-    BOARD_USR_WIFI := rtl8723bs
-    BOARD_WLAN_DEVICE := rtl8723bs
+    BOARD_USR_WIFI := rtl8723bs_vq0
+    BOARD_WLAN_DEVICE := rtl8723bs_vq0
 endif
 
 # 2. Bluetooth Configuration
@@ -51,7 +51,7 @@ BOARD_HAVE_BLUETOOTH := true
 #BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_HAVE_BLUETOOTH_RTK := true
 BLUETOOTH_HCI_USE_RTK_H5 := true
-BOARD_HAVE_BLUETOOTH_NAME := rtl8723bs
+BOARD_HAVE_BLUETOOTH_NAME := rtl8723bs_vq0
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/softwinner/octopus-ibt/bluetooth/
 
 # boostup code will on command to set CPU roomage and DDR freq

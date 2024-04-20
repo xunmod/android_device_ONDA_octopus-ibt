@@ -27,6 +27,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     device/softwinner/octopus-ibt/configs/camera.cfg:system/etc/camera.cfg \
+    device/softwinner/octopus-ibt/configs/wifi_efuse_8723bs_vq0.map:system/etc/wifi/wifi_efuse_8723bs_vq0.map \
     device/softwinner/octopus-ibt/configs/cfg-Gallery2.xml:system/etc/cfg-Gallery2.xml \
     device/softwinner/octopus-ibt/configs/media_profiles.xml:system/etc/media_profiles.xml \
     device/softwinner/octopus-ibt/configs/tp.idc:system/usr/idc/tp.idc \
