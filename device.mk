@@ -9,8 +9,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     VideoPlayer \
-		FMRadio \
-		MT
+		MaterialFiles \
+		Terminal
 
 PRODUCT_COPY_FILES += \
     device/softwinner/octopus-ibt/kernel:kernel \
@@ -23,22 +23,20 @@ PRODUCT_COPY_FILES += \
     device/softwinner/octopus-ibt/modules/modules/sunxi_tr.ko:root/sunxi_tr.ko \
     device/softwinner/octopus-ibt/modules/modules/disp.ko:root/disp.ko \
     device/softwinner/octopus-ibt/modules/modules/sw-device.ko:obj/sw-device.ko \
-    device/softwinner/octopus-ibt/modules/modules/gt9xxf_ts.ko:obj/gt9xxf_ts.ko \
-    device/softwinner/octopus-ibt/modules/modules/gslX680new.ko:obj/gslX680new.ko
+    device/softwinner/octopus-ibt/modules/modules/gt9xxf_ts.ko:obj/gt9xxf_ts.ko
 
 PRODUCT_COPY_FILES += \
     device/softwinner/octopus-ibt/configs/camera.cfg:system/etc/camera.cfg \
     device/softwinner/octopus-ibt/configs/cfg-Gallery2.xml:system/etc/cfg-Gallery2.xml \
     device/softwinner/octopus-ibt/configs/media_profiles.xml:system/etc/media_profiles.xml \
     device/softwinner/octopus-ibt/configs/tp.idc:system/usr/idc/tp.idc \
-    device/softwinner/octopus-ibt/configs/tp.idc:system/usr/idc/gt912_ts.idc \
+    device/softwinner/octopus-ibt/configs/tp.idc:system/usr/idc/gt9xxf_ts.idc \
     device/softwinner/octopus-ibt/configs/gsensor.cfg:system/usr/gsensor.cfg \
     device/softwinner/octopus-ibt/configs/sunxi-keyboard.kl:system/usr/keylayout/sunxi-keyboard.kl \
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
-    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
-    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
@@ -94,8 +92,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # function
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.bootfast=true \
-    ro.dmic.used=true
+    ro.sys.bootfast=true
 
 PRODUCT_LOCALES := zh_CN zh_TW en_US
 
