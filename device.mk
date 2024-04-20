@@ -81,19 +81,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb \
     ro.adb.secure=0 \
     ro.sys.mutedrm=false \
-    rw.logger=0
+    rw.logger=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.firmware=v3.0rc1
 
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.sf.lcd_density=160 \
-  ro.sf.rotation=270 \
-  ro.product.8723b_bt.used=true
+  ro.sf.rotation=270
 
 # function
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.bootfast=true
+  ro.sys.bootfast=true \
+  ro.product.8723b_bt.used=true \
+	ro.inet.wlan.type=8723bs_vq0
 
 PRODUCT_LOCALES := zh_CN zh_TW en_US
 
