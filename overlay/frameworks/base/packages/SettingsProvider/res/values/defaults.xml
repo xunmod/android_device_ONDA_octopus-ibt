@@ -19,4 +19,5 @@
 <resources>
     <!-- set backup service, required by gms-->
     <string name="def_backup_transport">com.google.android.backup/.BackupTransportService</string>
+    <string name="def_location_providers_allowed" translatable="false">network</string>
 </resources>

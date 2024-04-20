@@ -41,22 +41,4 @@
             android:primary="true"
             android:emulated="true"
             android:mtpReserve="100" />
-    <!-- extsd -->
-    <storage android:mountPoint="/storage/extsd"
-            android:storageDescription="@string/storage_sd_card"
-            android:primary="false"
-            android:removable="true"
-            android:emulated="false"
-            android:mtpReserve="0"
-            android:allowMassStorage="true"
-            android:maxFileSize="0" />
-    <!-- usbhost -->
-    <storage android:mountPoint="/storage/usbhost"
-            android:storageDescription="@string/storage_usb"
-            android:primary="false"
-            android:removable="true"
-            android:emulated="false"
-            android:mtpReserve="0"
-            android:allowMassStorage="true"
-            android:maxFileSize="0" />
 </StorageList>

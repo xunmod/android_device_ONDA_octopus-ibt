@@ -79,8 +79,21 @@
 <!-- Each camcorder profile defines a set of predefined configuration parameters -->
   <!-- Back Camera -->
   <!-- Front Camera -->
-  
+
   <CamcorderProfiles cameraId="0" startOffsetMs="700">
+        <EncoderProfile quality="720p" fileFormat="mp4" duration="30">
+            <Video codec="h264"
+                   bitRate="3000000"
+                   width="1280"
+                   height="720"
+                   frameRate="30" />
+
+            <Audio codec="aac"
+                   bitRate="128000"
+                   sampleRate="44100"
+                   channels="1" />
+        </EncoderProfile>
+
         <EncoderProfile quality="480p" fileFormat="mp4" duration="30">
             <Video codec="h264"
                    bitRate="1500000"
@@ -93,9 +106,19 @@
                    sampleRate="8000"
                    channels="1" />
         </EncoderProfile>
-	
-	
-	
+
+        <EncoderProfile quality="timelapse720p" fileFormat="mp4" duration="30">
+            <Video codec="h264"
+                   bitRate="3000000"
+                   width="1280"
+                   height="720"
+                   frameRate="30" />
+            <!-- audio setting is ignored -->
+            <Audio codec="aac"
+                   bitRate="128000"
+                   sampleRate="44100"
+                   channels="1" />
+	</EncoderProfile>
 	    	
 	    	<EncoderProfile quality="timelapse480p" fileFormat="mp4" duration="30">
             <Video codec="h264"
@@ -108,7 +131,7 @@
                    bitRate="12200"
                    sampleRate="8000"
                    channels="1" />
-        </EncoderProfile>  
+        </EncoderProfile>
 
 
         <ImageEncoding quality="90" />
@@ -116,47 +139,43 @@
         <ImageEncoding quality="70" />
         <ImageDecoding memCap="20000000" />
 
-        <Camera previewFrameRate="0" />
 
-    </CamcorderProfiles> 
-    
+    </CamcorderProfiles>
+
   <CamcorderProfiles cameraId="1" startOffsetMs="700">
-
 
         <EncoderProfile quality="480p" fileFormat="mp4" duration="30">
             <Video codec="h264"
                    bitRate="1500000"
                    width="640"
                    height="480"
-                   frameRate="20" />
+                   frameRate="30" />
 
             <Audio codec="aac"
                    bitRate="12200"
                    sampleRate="8000"
                    channels="1" />
         </EncoderProfile>
-        
+
         <EncoderProfile quality="timelapse480p" fileFormat="mp4" duration="30">
             <Video codec="h264"
                    bitRate="1500000"
                    width="640"
                    height="480"
-                   frameRate="20" />
+                   frameRate="30" />
 
             <Audio codec="aac"
                    bitRate="12200"
                    sampleRate="8000"
                    channels="1" />
-        </EncoderProfile>  
+        </EncoderProfile>
 
         <ImageEncoding quality="90" />
         <ImageEncoding quality="80" />
         <ImageEncoding quality="70" />
         <ImageDecoding memCap="20000000" />
 
-      <Camera previewFrameRate="0" />       
-
-  </CamcorderProfiles>     
+  </CamcorderProfiles>
 
     <EncoderOutputFileFormat name="mp4" />
 
@@ -166,9 +185,9 @@
          or query the capabilities of the codec at all if it is disabled
     -->
     <VideoEncoderCap name="h264" enabled="true"
-        minBitRate="64000" maxBitRate="8000000"
-        minFrameWidth="176" maxFrameWidth="4096"
-        minFrameHeight="144" maxFrameHeight="4096"
+        minBitRate="64000" maxBitRate="3000000"
+        minFrameWidth="176" maxFrameWidth="2592"
+        minFrameHeight="144" maxFrameHeight="1936"
         minFrameRate="1" maxFrameRate="30" />
 
     <AudioEncoderCap name="aac" enabled="true"

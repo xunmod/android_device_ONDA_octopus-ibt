@@ -217,24 +217,6 @@
     -->
     <bool name="config_enableWifiDisplay">true</bool>
 
-    <!-- Defines the default set of global actions. Actions may still be disabled or hidden based
-         on the current state of the device.
-         Each item must be one of the following strings:
-         "power" = Power off
-         "reboot" = Reboot system
-         "settings" = An action to launch settings
-         "airplane" = Airplane mode toggle
-         "bugreport" = Take bug report, if available
-         "silent" = silent mode
-         "users" = list of users
-         -->
-    <string-array translatable="false" name="config_globalActionsList">
-        <item>power</item>
-        <item>reboot</item>
-        <item>bugreport</item>
-        <item>users</item>
-    </string-array>
-
     <!-- If true, the screen can be rotated via the accelerometer in all 4
     rotations as the default behavior. -->
     <bool name="config_allowAllRotations">true</bool>
@@ -242,4 +224,13 @@
     <!-- Switch for lockscreen rotation by -->
     <bool name="config_enableLockScreenRotation">true</bool>
 
+    <!-- Boolean indicating if current platform supports BLE peripheral mode -->
+    <bool name="config_bluetooth_le_peripheral_mode_supported">true</bool>
+
+   <!-- The device supports freeform window management. Windows have title bars and can be moved
+         and resized. If you set this to true, you also need to add
+         PackageManager.FEATURE_FREEFORM_WINDOW_MANAGEMENT feature to your device specification.
+         The duplication is necessary, because this information is used before the features are
+         available to the system.-->
+    <bool name="config_freeformWindowManagement">false</bool>
 </resources>

@@ -18,49 +18,76 @@
 -->
 
 <device name="Android">
-	<item name="none">0</item>
-	<item name="screen.on">55</item>
-	<item name="bluetooth.active">142</item>
-	<item name="bluetooth.on">1</item>
-	<item name="bluetooth.at">35690</item>
-	<item name="screen.full">115</item>
-	<item name="wifi.on">4</item>
-	<item name="wifi.active">130</item>
-	<item name="wifi.scan">104</item>
-	<item name="dsp.audio">75</item>
-	<item name="dsp.video">75</item>
-	<item name="radio.active">300</item>
-	<item name="gps.on">170</item>
-	<item name="radio.scanning">70</item>
-	<array name="radio.on">
-		<value>3</value>
-		<value>3</value>
-	</array>
-	<array name="cpu.speeds">
-		<value>1000000</value>
-		<value>900000</value>
-		<value>800000</value>
-		<value>700000</value>
-		<value>600000</value>
-		<value>500000</value>
-		<value>400000</value>
-		<value>300000</value>
-		<value>200000</value>
-		<value>100000</value>
-	</array>
-	<item name="cpu.idle">10</item>
-	<array name="cpu.active">
-		<value>840</value>
-		<value>760</value>
-		<value>680</value>
-		<value>520</value>
-		<value>440</value>
-		<value>360</value>
-		<value>280</value>
-		<value>200</value>
-		<value>120</value>
-		<value>40</value>
-	</array>
-	<item name="battery.capacity">1000</item>
-</device>
+  <!-- Most values are the incremental current used by a feature,
+       in mA (measured at nominal voltage).
+       The default values are deliberately incorrect dummy values.
+       OEM's must measure and provide actual values before
+       shipping a device.
+       Example real-world values are given in comments, but they
+       are totally dependent on the platform and can vary
+       significantly, so should be measured on the shipping platform
+       with a power meter. -->
+  <item name="none">0</item>
+  <item name="screen.on">300</item>  <!-- ~200mA -->
+  <item name="screen.full">400</item>  <!-- ~300mA -->
+  <item name="bluetooth.active">93.5</item> <!-- Bluetooth data transfer, ~10mA -->
+  <item name="bluetooth.on">0.79</item>  <!-- Bluetooth on & connectable, but not connected, ~0.1mA -->
+  <item name="wifi.on">3.5</item>  <!-- ~3mA -->
+  <item name="wifi.active">73.24</item>  <!-- WIFI data transfer, ~200mA -->
+  <item name="wifi.scan">75.48</item>  <!-- WIFI network scanning, ~100mA -->
+  <item name="dsp.audio">88</item> <!-- ~10mA -->
+  <item name="dsp.video">88</item> <!-- ~50mA -->
+  <item name="camera.flashlight">0.1</item> <!-- Avg. power for camera flash, ~160mA -->
+  <item name="camera.avg">550</item> <!-- Avg. power use of camera in standard usecases, ~550mA -->
+  <item name="radio.active">0.1</item> <!-- ~200mA -->
+  <item name="radio.scanning">0.1</item> <!-- cellular radio scanning for signal, ~10mA -->
+  <item name="gps.on">0.1</item> <!-- ~50mA -->
+  <!-- Current consumed by the radio at different signal strengths, when paging -->
+  <array name="radio.on"> <!-- Strength 0 to BINS-1 -->
+      <value>0.2</value> <!-- ~2mA -->
+      <value>0.1</value> <!-- ~1mA -->
+  </array>
+  <!-- Different CPU speeds as reported in
+       /sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state -->
+  <array name="cpu.speeds">
+      <value>480000</value> <!-- 480 MHz CPU speed -->
+      <value>600000</value> <!-- 600 MHz CPU speed -->
+      <value>720000</value> <!-- 720 MHz CPU speed -->
+      <value>864000</value> <!-- 860 MHz CPU speed -->
+      <value>912000</value> <!-- 912 MHz CPU speed -->
+      <value>1008000</value> <!-- 1008 MHz CPU speed -->
+      <value>1128000</value> <!-- 1128 MHz CPU speed -->
+      <value>1200000</value> <!-- 1200 MHz CPU speed -->
+      <value>1608000</value> <!-- 1608 MHz CPU speed -->
+      <value>1800000</value> <!-- 1800 MHz CPU speed -->
+      <value>2016000</value> <!-- 2016 MHz CPU speed -->   
+  </array>
+  <!-- Current when CPU is idle -->
+  <item name="cpu.idle">3.2</item>
+  <item name="cpu.awake">17.4</item>
+  <!-- Current at each CPU speed, as per 'cpu.speeds' -->
+  <array name="cpu.active">
+      <value>88.2</value> <!-- 480 MHz CPU speed -->
+      <value>99.6</value> <!-- 600 MHz CPU speed -->
+      <value>138.8</value> <!-- 720 MHz CPU speed -->
+      <value>149.6</value> <!-- 860 MHz CPU speed -->
+      <value>170.2</value> <!-- 912 MHz CPU speed -->
+      <value>178.3</value> <!-- 1008 MHz CPU speed -->
+      <value>149.6</value> <!-- 1128 MHz CPU speed -->
+      <value>189.1</value> <!-- 1200 MHz CPU speed -->
+      <value>266.4</value> <!-- 1608 MHz CPU speed -->
+      <value>287.7</value> <!-- 1800 MHz CPU speed -->
+      <value>325.7</value> <!-- 2016 MHz CPU speed -->   
+ 
+  </array>
+  <!-- This is the battery capacity in mAh (measured at nominal voltage) -->
+  <item name="battery.capacity">2978</item>
 
+  <array name="wifi.batchedscan"> <!-- mA -->
+      <value>.0076</value> <!-- 1-8/hr -->
+      <value>.0613</value>  <!-- 9-64/hr -->
+      <value>.4845</value>   <!-- 65-512/hr -->
+      <value>3.870</value>    <!-- 513-4,096/hr -->
+      <value>30.96</value>    <!-- 4097-/hr -->
+  </array>
+</device>
